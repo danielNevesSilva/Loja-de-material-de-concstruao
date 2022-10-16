@@ -1,5 +1,5 @@
 
-package com.mycompany.projetopi.maven;
+package com.mycompany.projetopi.model;
 
 import java.util.Date;
 

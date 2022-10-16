@@ -1,4 +1,4 @@
-package com.mycompany.projetopi.maven;
+package com.mycompany.projetopi.model;
 
 import java.util.Date;
 
@@ -23,7 +23,7 @@ public class CadastroCliente {
     }
 
     public String getEmail() {
-        return email;
+                   return email;
     }
 
     public void setEmail(String email) {

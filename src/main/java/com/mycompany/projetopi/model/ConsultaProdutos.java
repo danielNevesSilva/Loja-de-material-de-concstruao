@@ -1,4 +1,4 @@
-package com.mycompany.projetopi.maven;
+package com.mycompany.projetopi.model;
 
 public class ConsultaProdutos {
 
