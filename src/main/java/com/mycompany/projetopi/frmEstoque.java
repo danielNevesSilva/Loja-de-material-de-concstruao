@@ -43,12 +43,12 @@ public class frmEstoque extends javax.swing.JFrame {
         txtPrecoCompra = new javax.swing.JTextField();
         txtPrecoVenda = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtConsultar = new javax.swing.JTextField();
         btnConsultar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estoque", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
 
@@ -134,6 +134,15 @@ public class frmEstoque extends javax.swing.JFrame {
 
         jLabel5.setText("Preço da venda");
 
+        txtConsultar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtConsultarFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtConsultarFocusLost(evt);
+            }
+        });
+
         btnConsultar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnConsultar.setText("Consultar");
 
@@ -175,7 +184,7 @@ public class frmEstoque extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnCancelar)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField7)
+                                .addComponent(txtConsultar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnConsultar))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -227,7 +236,7 @@ public class frmEstoque extends javax.swing.JFrame {
                     .addComponent(btnAlterar)
                     .addComponent(btnApagar)
                     .addComponent(btnCancelar)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConsultar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,6 +325,17 @@ public class frmEstoque extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProdutoActionPerformed
 
+    private void txtConsultarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConsultarFocusGained
+        // TODO add your handling code here:
+        txtConsultar.setBackground(Color.yellow);
+
+    }//GEN-LAST:event_txtConsultarFocusGained
+
+    private void txtConsultarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConsultarFocusLost
+        // TODO add your handling code here:
+        txtConsultar.setBackground(Color.white);
+    }//GEN-LAST:event_txtConsultarFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -334,8 +354,8 @@ public class frmEstoque extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtConsultar;
     private javax.swing.JTextField txtPrecoCompra;
     private javax.swing.JTextField txtPrecoVenda;
     private javax.swing.JTextField txtProduto;
