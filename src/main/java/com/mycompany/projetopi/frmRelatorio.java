@@ -80,6 +80,11 @@ public class frmRelatorio extends javax.swing.JFrame {
                 txtDataInicialFocusLost(evt);
             }
         });
+        txtDataInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataInicialActionPerformed(evt);
+            }
+        });
 
         try {
             txtDataFinal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -200,6 +205,10 @@ public class frmRelatorio extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtDataFinal.setBackground(Color.white);
     }//GEN-LAST:event_txtDataFinalFocusLost
+
+    private void txtDataInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataInicialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataInicialActionPerformed
 
     /**
      * @param args the command line arguments

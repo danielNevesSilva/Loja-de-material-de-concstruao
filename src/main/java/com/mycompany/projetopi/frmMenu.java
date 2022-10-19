@@ -171,7 +171,7 @@ public class frmMenu extends javax.swing.JFrame {
 
     private void btnConsultarVendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarVendedoresActionPerformed
         // TODO add your handling code here:
-        frmconsultarVendedor frmMenu = new frmconsultarVendedor();
+        frmConsultarVendedor frmMenu = new frmConsultarVendedor();
         frmMenu.setVisible(true);
     }//GEN-LAST:event_btnConsultarVendedoresActionPerformed
 

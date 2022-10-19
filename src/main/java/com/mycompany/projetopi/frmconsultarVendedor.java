@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author daniel.nsilva20
  */
-public class frmconsultarVendedor extends javax.swing.JFrame {
+public class frmConsultarVendedor extends javax.swing.JFrame {
 
     /**
      * Creates new form frmconsultarVendedor
      */
-    public frmconsultarVendedor() {
+    public frmConsultarVendedor() {
         initComponents();
     }
 
@@ -53,7 +53,7 @@ public class frmconsultarVendedor extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nome", "Nascimento", "CPF", "Cargo"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

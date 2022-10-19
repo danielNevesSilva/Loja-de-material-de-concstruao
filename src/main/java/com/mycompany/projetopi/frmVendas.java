@@ -232,6 +232,11 @@ public class frmVendas extends javax.swing.JFrame {
                 txtCPFFocusLost(evt);
             }
         });
+        txtCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCPFActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 220, 30));
 
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -300,7 +305,7 @@ public class frmVendas extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if ((c < '0') || (c > '9') && (c != KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
-            JOptionPane.showConfirmDialog(this, "Digite apenas numeros");
+            JOptionPane.showMessageDialog(this, "Digite apenas numeros");
 
         }
     }//GEN-LAST:event_txtProdutoKeyTyped
@@ -349,6 +354,10 @@ public class frmVendas extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtCPF.setBackground(Color.white);
     }//GEN-LAST:event_txtCPFFocusLost
+
+    private void txtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCPFActionPerformed
 
     /**
      * @param args the command line arguments
