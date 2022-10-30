@@ -34,6 +34,7 @@ public class frmVendas extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jLabel10 = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -61,6 +62,8 @@ public class frmVendas extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtCPF = new javax.swing.JFormattedTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtValorTotal = new javax.swing.JTextField();
 
         jTextField1.setText("Vendedo");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +75,8 @@ public class frmVendas extends javax.swing.JFrame {
         jMenu1.setText("jMenu1");
 
         jMenuItem1.setText("jMenuItem1");
+
+        jLabel10.setText("jLabel10");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -126,7 +131,7 @@ public class frmVendas extends javax.swing.JFrame {
                 btnFinalizarVendaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnFinalizarVenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 109, -1));
+        jPanel1.add(btnFinalizarVenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 109, -1));
 
         txtQuantidade.setText("Quantidade");
         txtQuantidade.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -148,7 +153,7 @@ public class frmVendas extends javax.swing.JFrame {
         jPanel1.add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
         btnRemover.setText("Remover");
-        jPanel1.add(btnRemover, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
+        jPanel1.add(btnRemover, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 460, 90, 40));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setText("Lista de Produtos");
@@ -173,13 +178,13 @@ public class frmVendas extends javax.swing.JFrame {
         jLabel5.setText("Dados do Cliente");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
 
-        cbVendedores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendedores", " " }));
+        cbVendedores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendedores", "Daniel", "Leonardo", "Matheus", "Marcos", "Mario" }));
         cbVendedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbVendedoresActionPerformed(evt);
             }
         });
-        jPanel1.add(cbVendedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 57, 213, -1));
+        jPanel1.add(cbVendedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 53, 213, 30));
 
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -190,17 +195,14 @@ public class frmVendas extends javax.swing.JFrame {
         jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 182, 96, -1));
 
         jButton2.setText("Cancelar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 100, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 100, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Produto", "Quantidade", "Preço", "Desconto", "Total "
+                "Produto", "Quantidade", "Preço", "Desconto"
             }
         ));
         jScrollPane3.setViewportView(jTable1);
@@ -239,6 +241,10 @@ public class frmVendas extends javax.swing.JFrame {
         });
         jPanel1.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 220, 30));
 
+        jLabel11.setText("Valor Total");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, -1, -1));
+        jPanel1.add(txtValorTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 440, 60, -1));
+
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -252,7 +258,7 @@ public class frmVendas extends javax.swing.JFrame {
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -268,7 +274,7 @@ public class frmVendas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -373,6 +379,8 @@ public class frmVendas extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -394,5 +402,6 @@ public class frmVendas extends javax.swing.JFrame {
     private javax.swing.JTextField txtDesconto;
     private javax.swing.JTextField txtProduto;
     private javax.swing.JTextField txtQuantidade;
+    private javax.swing.JTextField txtValorTotal;
     // End of variables declaration//GEN-END:variables
 }

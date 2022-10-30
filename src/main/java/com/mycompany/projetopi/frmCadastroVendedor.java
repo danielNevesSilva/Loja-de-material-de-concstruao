@@ -51,8 +51,8 @@ public class frmCadastroVendedor extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         btnAlterar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rbMasculino = new javax.swing.JRadioButton();
+        rbFeminino = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -171,11 +171,11 @@ public class frmCadastroVendedor extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jRadioButton1.setText("Masculino");
+        rbMasculino.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        rbMasculino.setText("Masculino");
 
-        jRadioButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jRadioButton2.setText("Feminino");
+        rbFeminino.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        rbFeminino.setText("Feminino");
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setText("Sexo");
@@ -206,7 +206,7 @@ public class frmCadastroVendedor extends javax.swing.JFrame {
         jLabel3.setText("Codigo");
 
         try {
-            txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###/##")));
+            txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -256,9 +256,9 @@ public class frmCadastroVendedor extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel4Layout.createSequentialGroup()
                             .addGap(35, 35, 35)
-                            .addComponent(jRadioButton1)
+                            .addComponent(rbMasculino)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jRadioButton2))
+                            .addComponent(rbFeminino))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -345,8 +345,8 @@ public class frmCadastroVendedor extends javax.swing.JFrame {
                     .addComponent(txtDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
+                    .addComponent(rbMasculino)
+                    .addComponent(rbFeminino)
                     .addComponent(jLabel9))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -432,13 +432,30 @@ public class frmCadastroVendedor extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
+        if ((txtNome.getText().length() > 0)
+                && (txtCPF.getText().length() > 0)
+                && (txtDataNascimento.getText().length() > 0)
+                && (txtTelefone.getText().length() > 0)
+                && (rbMasculino.getText().length() > 0)
+                && (rbFeminino.getText().length() > 0)
+                && (txtAtivacao.getText().length() > 0)
+                && (txtDesativacao.getText().length() > 0)
+                && (txtCargo.getText().length() > 0)
+                && (txtCodigo.getText().length() > 0)) {
+
+            JOptionPane.showMessageDialog(null, "Dados Validados!");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Confira os campos Obrigatorios!");
+        }
+
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
-    
+
     private void txtCodigoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCodigoFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoFocusGained
@@ -479,32 +496,32 @@ public class frmCadastroVendedor extends javax.swing.JFrame {
 
     private void txtCPFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCPFFocusGained
         // TODO add your handling code here:
-txtCPF.setBackground(Color.yellow);
+        txtCPF.setBackground(Color.yellow);
     }//GEN-LAST:event_txtCPFFocusGained
 
     private void txtCPFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCPFFocusLost
         // TODO add your handling code here:
-txtCPF.setBackground(Color.white);
+        txtCPF.setBackground(Color.white);
     }//GEN-LAST:event_txtCPFFocusLost
 
     private void txtTelefoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTelefoneFocusGained
         // TODO add your handling code here:
-txtTelefone.setBackground(Color.yellow);
+        txtTelefone.setBackground(Color.yellow);
     }//GEN-LAST:event_txtTelefoneFocusGained
 
     private void txtTelefoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTelefoneFocusLost
         // TODO add your handling code here:
-txtTelefone.setBackground(Color.white);
+        txtTelefone.setBackground(Color.white);
     }//GEN-LAST:event_txtTelefoneFocusLost
 
     private void txtDataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimentoFocusGained
         // TODO add your handling code here:
-txtDataNascimento.setBackground(Color.yellow);
+        txtDataNascimento.setBackground(Color.yellow);
     }//GEN-LAST:event_txtDataNascimentoFocusGained
 
     private void txtDataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimentoFocusLost
         // TODO add your handling code here:
-txtDataNascimento.setBackground(Color.white);
+        txtDataNascimento.setBackground(Color.white);
     }//GEN-LAST:event_txtDataNascimentoFocusLost
 
     /**
@@ -532,8 +549,8 @@ txtDataNascimento.setBackground(Color.white);
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton rbFeminino;
+    private javax.swing.JRadioButton rbMasculino;
     private javax.swing.JTextField txtAtivacao;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JTextField txtCargo;
