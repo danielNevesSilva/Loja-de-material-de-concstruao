@@ -7,18 +7,55 @@ package com.mycompany.projetopi;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import java.sql.*;
+import br.com.infox.DAO.Conexao;
 
 /**
  *
  * @author danie
  */
 public class frmCadastroCliente extends javax.swing.JFrame {
-
+Connection conexao = null;
+PreparedStatement pst = null;
+ResultSet st = null;
     /**
      * Creates new form frmCadastroCliente
      */
     public frmCadastroCliente() {
         initComponents();
+        conexao = Conexao.conector();
+        System.out.println(conexao);
+    }
+    
+    public void cadastrar(){
+        String sql = "insert into cadastrocliente(nome,cpf,telefone,email,datanascimento,sexo,estadocivil,cidade) values(?,?,?,?,?,?,?,?)";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1,txtNome.getText());
+            pst.setString(2,txtCPF.getText());
+            pst.setString(3,txtTelefone.getText());
+            pst.setString(4,txtEmail.getText());
+            String dia = txtDataNascimento.getText().substring(0, 2);
+            String mes = txtDataNascimento.getText().substring(3, 5);
+            String ano = txtDataNascimento.getText().substring(6);
+            String dataParaMYSQL = ano+"-"+mes+"-"+dia;
+            pst.setString(5,dataParaMYSQL);
+            pst.setString(6, rbMasculino.getText());
+            pst.setString(6, rbFeminino.getText());
+            if(rbMasculino.isSelected()){
+                System.out.println("M");
+            }else if(rbFeminino.isSelected()){
+                System.out.println("F");
+            }
+           // pst.setString(6,rbMasculino.getText());
+            //pst.setString(6,rbFeminino.getText());
+            pst.setString(7,cmbEstadoCivil.getSelectedItem().toString());
+            pst.setString(8,cmbCidade.getSelectedItem().toString());
+            
+            pst.executeUpdate();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e); 
+        }
     }
 
     /**
@@ -393,7 +430,8 @@ public class frmCadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDataNascimentoFocusLost
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
+       cadastrar();
+       
         if ((txtNome.getText().length() > 0)
                 && (txtCPF.getText().length() > 0)
                 && (txtDataNascimento.getText().length() > 0)
