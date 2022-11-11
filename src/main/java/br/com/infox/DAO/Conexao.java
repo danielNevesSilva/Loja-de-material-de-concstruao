@@ -11,7 +11,7 @@ public class Conexao {
 
         String driver = "com.mysql.cj.jdbc.Driver";
 
-        String url = "jdbc:mysql://localhost:3306/projetopi";
+        String url = "jdbc:mysql://localhost:3306/projetoevolucao";
         String user = "root";
         String password = "";
 

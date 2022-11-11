@@ -28,11 +28,11 @@ ResultSet st = null;
     }
     
     public void cadastrar(){
-        String sql = "insert into cadastrocliente(nome,cpf,telefone,email,datanascimento,sexo,estadocivil,cidade) values(?,?,?,?,?,?,?,?)";
+        String sql = "insert into cliente(cpf,nome,telefone,email,datanascimento,sexo,estadocivil,cidade) values(?,?,?,?,?,?,?,?)";
         try {
             pst = conexao.prepareStatement(sql);
-            pst.setString(1,txtNome.getText());
-            pst.setString(2,txtCPF.getText());
+            pst.setString(1,txtCPF.getText());
+            pst.setString(2,txtNome.getText());
             pst.setString(3,txtTelefone.getText());
             pst.setString(4,txtEmail.getText());
             String dia = txtDataNascimento.getText().substring(0, 2);
@@ -40,12 +40,10 @@ ResultSet st = null;
             String ano = txtDataNascimento.getText().substring(6);
             String dataParaMYSQL = ano+"-"+mes+"-"+dia;
             pst.setString(5,dataParaMYSQL);
-            pst.setString(6, rbMasculino.getText());
-            pst.setString(6, rbFeminino.getText());
             if(rbMasculino.isSelected()){
-                System.out.println("M");
+                pst.setString(6,"M");
             }else if(rbFeminino.isSelected()){
-                System.out.println("F");
+                 pst.setString(6,"F");
             }
            // pst.setString(6,rbMasculino.getText());
             //pst.setString(6,rbFeminino.getText());
@@ -57,6 +55,8 @@ ResultSet st = null;
             JOptionPane.showMessageDialog(null, e); 
         }
     }
+    
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -211,6 +211,11 @@ ResultSet st = null;
                 txtTelefoneFocusLost(evt);
             }
         });
+        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefoneActionPerformed(evt);
+            }
+        });
 
         try {
             txtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -223,6 +228,11 @@ ResultSet st = null;
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtDataNascimentoFocusLost(evt);
+            }
+        });
+        txtDataNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataNascimentoActionPerformed(evt);
             }
         });
 
@@ -378,7 +388,7 @@ ResultSet st = null;
     }//GEN-LAST:event_txtNomeFocusLost
 
     private void rbMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMasculinoActionPerformed
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_rbMasculinoActionPerformed
 
     private void cmbCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCidadeActionPerformed
@@ -447,6 +457,14 @@ ResultSet st = null;
 
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void txtDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascimentoActionPerformed
+
+    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefoneActionPerformed
     /**
      * @param args the command line arguments
      */

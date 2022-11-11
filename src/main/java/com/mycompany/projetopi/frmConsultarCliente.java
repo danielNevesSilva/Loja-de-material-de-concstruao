@@ -4,7 +4,13 @@
  */
 package com.mycompany.projetopi;
 
+import br.com.infox.DAO.Conexao;
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import br.com.infox.DAO.Conexao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -12,11 +18,90 @@ import java.awt.Color;
  */
 public class frmConsultarCliente extends javax.swing.JFrame {
 
+    Connection conexao = null;
+    PreparedStatement pst = null;
+    ResultSet st = null;
+
     /**
      * Creates new form NewJFrame
      */
     public frmConsultarCliente() {
         initComponents();
+        conexao = Conexao.conector();
+        System.out.println(conexao);
+    }
+
+    public void consultar() {
+        String sql = "select * from cliente where cpf=?";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtCPF.getText());
+            st = pst.executeQuery();
+            if (st.next()) {
+                txtCPF.setText(st.getString(2));
+                txtNomeCliente.setText(st.getString(3));
+                txtTelefone.setText(st.getString(4));
+                txtEmail.setText(st.getString(5));
+                txtDataNascimento.setText(st.getDate(6).toString().replaceAll("-", ""));
+                txtSexo.setText(st.getString(7));
+                txtEstadoCivil.setText(st.getString(8));
+                txtCidade.setText(st.getString(9));
+            } else {
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    public void atualizar(){
+        String sql = "update cliente set cpf=?,nome=?,telefone=?,email=?,datanascimento=?,sexo=?,estadocivil=?,cidade=? where idcliente=?";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1,txtCPF.getText());
+            pst.setString(2,txtNomeCliente.getText());
+            pst.setString(3,txtTelefone.getText());
+            pst.setString(4,txtEmail.getText());
+            String dia = txtDataNascimento.getText().substring(0, 2);
+            String mes = txtDataNascimento.getText().substring(3, 5);
+            String ano = txtDataNascimento.getText().substring(6);
+            String dataParaMYSQL = ano+"-"+mes+"-"+dia;
+            pst.setString(5,dataParaMYSQL);
+           /* if(txtSexo.getText() = "M"){
+                pst.setString(6,"M");
+            }else if(rbFeminino.isSelected()){
+                 pst.setString(6,"F");
+            }*/
+           pst.setString(6,txtSexo.getText());
+           // pst.setString(6,rbMasculino.getText());
+            //pst.setString(6,rbFeminino.getText());
+            pst.setString(7,txtEstadoCivil.getText());
+            pst.setString(8,txtCidade.getText());
+            pst.setString(9,txtIdcliente.getText());
+            
+            
+             if((txtIdcliente.getText().isEmpty() || txtCPF.getText().isEmpty() || txtNomeCliente.getText().isEmpty() || txtTelefone.getText().isEmpty() || txtEmail.getText().isEmpty() || dataParaMYSQL.isEmpty() || txtSexo.getText().isEmpty() || txtEstadoCivil.getText().isEmpty() || txtCidade.getText().isEmpty() )){
+                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");  
+             }else{
+            int adicionado = pst.executeUpdate();
+            
+            if(adicionado > 0){
+                JOptionPane.showMessageDialog(null, "Dados do usuário alterado com sucesso");
+                txtIdcliente.setText(null);
+                txtCPF.setText(null);
+                txtNomeCliente.setText(null);
+                txtTelefone.setText(null);
+                txtEmail.setText(null);
+                txtDataNascimento.setText(null);
+                txtSexo.setText(null);
+                txtEstadoCivil.setText(null);
+                txtCidade.setText(null);
+                                                
+            }
+             }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e); 
+        }
     }
 
     /**
@@ -28,29 +113,40 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jProgressBar1 = new javax.swing.JProgressBar();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnConsultar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         btnCadastrar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtCPF = new javax.swing.JFormattedTextField();
         txtNomeCliente = new javax.swing.JFormattedTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtTelefone = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         txtDataNascimento = new javax.swing.JFormattedTextField();
+        txtSexo = new javax.swing.JTextField();
+        txtEstadoCivil = new javax.swing.JTextField();
+        txtCidade = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        txtIdcliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Consultar Cliente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18))); // NOI18N
+        jPanel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("Digite o CPF do cliente");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 48, 194, -1));
+        jLabel1.setText("CPF");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 194, -1));
 
         btnConsultar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnConsultar.setText("Consultar ");
@@ -59,21 +155,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 275, -1, -1));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Nome", "Data Nascimento", "CPF"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 51, 346, 270));
+        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
 
         btnCadastrar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnCadastrar.setText("Cadastrar");
@@ -82,16 +164,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 275, -1, -1));
-
-        btnCancelar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 363, 100, -1));
+        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
         btnAlterar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnAlterar.setText("Alterar");
@@ -100,7 +173,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 btnAlterarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 322, 104, -1));
+        jPanel1.add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 104, -1));
 
         jButton5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton5.setText("Apagar");
@@ -109,18 +182,18 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 322, 96, -1));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 96, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("Digite o nome do cliente");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 121, -1, -1));
+        jLabel2.setText("Nome");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setText("Digite a data de nascimento");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        jLabel3.setText("Data de nascimento");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         try {
-            txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###/##")));
+            txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -132,7 +205,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 txtCPFFocusLost(evt);
             }
         });
-        jPanel1.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 79, 171, -1));
+        jPanel1.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 171, -1));
 
         txtNomeCliente.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -142,56 +215,91 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 txtNomeClienteFocusLost(evt);
             }
         });
-        jPanel1.add(txtNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 170, -1));
+        jPanel1.add(txtNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 170, -1));
 
-        txtDataNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtDataNascimentoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtDataNascimentoFocusLost(evt);
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setText("Cidade");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setText("Telefone");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setText("Email");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setText("Sexo");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setText("Estado Civil");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
+        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 170, -1));
+
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
             }
         });
-        jPanel1.add(txtDataNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 170, -1));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 280, -1));
+
+        try {
+            txtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtDataNascimento.setText("  /  /    ");
+        jPanel1.add(txtDataNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 150, -1));
+        jPanel1.add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 170, -1));
+
+        txtEstadoCivil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEstadoCivilActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtEstadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 170, -1));
+        jPanel1.add(txtCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 260, -1));
+
+        jTextField1.setText("jTextField1");
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 40, 0, -1));
+
+        txtIdcliente.setText("jTextField2");
+        jPanel1.add(txtIdcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(621, 30, 0, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnConsultarActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        consultar();
+    }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        // TODO add your handling code here:
+       atualizar();
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
+        frmCadastroCliente frmVendas = new frmCadastroCliente();
+        frmVendas.setVisible(true);
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -215,15 +323,13 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         txtNomeCliente.setBackground(Color.white);
     }//GEN-LAST:event_txtNomeClienteFocusLost
 
-    private void txtDataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimentoFocusGained
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
-        txtDataNascimento.setBackground(Color.yellow);
-    }//GEN-LAST:event_txtDataNascimentoFocusGained
+    }//GEN-LAST:event_txtEmailActionPerformed
 
-    private void txtDataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimentoFocusLost
+    private void txtEstadoCivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstadoCivilActionPerformed
         // TODO add your handling code here:
-        txtDataNascimento.setBackground(Color.white);
-    }//GEN-LAST:event_txtDataNascimentoFocusLost
+    }//GEN-LAST:event_txtEstadoCivilActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,17 +338,31 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JFormattedTextField txtCPF;
+    private javax.swing.JTextField txtCidade;
     private javax.swing.JFormattedTextField txtDataNascimento;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEstadoCivil;
+    private javax.swing.JTextField txtIdcliente;
     private javax.swing.JFormattedTextField txtNomeCliente;
+    private javax.swing.JTextField txtSexo;
+    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
+
+    // private void initComponents() {
+    //   throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    //}
 }
