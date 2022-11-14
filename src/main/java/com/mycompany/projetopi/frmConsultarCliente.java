@@ -17,7 +17,7 @@ import java.sql.ResultSet;
  * @author daniel.nsilva20
  */
 public class frmConsultarCliente extends javax.swing.JFrame {
-
+    
     Connection conexao = null;
     PreparedStatement pst = null;
     ResultSet st = null;
@@ -30,7 +30,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         conexao = Conexao.conector();
         System.out.println(conexao);
     }
-
+    
     public void consultar() {
         String sql = "select * from cliente where cpf=?";
         try {
@@ -53,54 +53,53 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         }
     }
     
-    public void atualizar(){
+    public void atualizar() {
         String sql = "update cliente set cpf=?,nome=?,telefone=?,email=?,datanascimento=?,sexo=?,estadocivil=?,cidade=? where idcliente=?";
         try {
             pst = conexao.prepareStatement(sql);
-            pst.setString(1,txtCPF.getText());
-            pst.setString(2,txtNomeCliente.getText());
-            pst.setString(3,txtTelefone.getText());
-            pst.setString(4,txtEmail.getText());
+            pst.setString(1, txtCPF.getText());
+            pst.setString(2, txtNomeCliente.getText());
+            pst.setString(3, txtTelefone.getText());
+            pst.setString(4, txtEmail.getText());
             String dia = txtDataNascimento.getText().substring(0, 2);
             String mes = txtDataNascimento.getText().substring(3, 5);
             String ano = txtDataNascimento.getText().substring(6);
-            String dataParaMYSQL = ano+"-"+mes+"-"+dia;
-            pst.setString(5,dataParaMYSQL);
-           /* if(txtSexo.getText() = "M"){
+            String dataParaMYSQL = ano + "-" + mes + "-" + dia;
+            pst.setString(5, dataParaMYSQL);
+            /* if(txtSexo.getText() = "M"){
                 pst.setString(6,"M");
             }else if(rbFeminino.isSelected()){
                  pst.setString(6,"F");
             }*/
-           pst.setString(6,txtSexo.getText());
-           // pst.setString(6,rbMasculino.getText());
+            pst.setString(6, txtSexo.getText());
+            // pst.setString(6,rbMasculino.getText());
             //pst.setString(6,rbFeminino.getText());
-            pst.setString(7,txtEstadoCivil.getText());
-            pst.setString(8,txtCidade.getText());
-            pst.setString(9,txtIdcliente.getText());
+            pst.setString(7, txtEstadoCivil.getText());
+            pst.setString(8, txtCidade.getText());
+            pst.setString(9, txtIdcliente.getText());
             
-            
-             if((txtIdcliente.getText().isEmpty() || txtCPF.getText().isEmpty() || txtNomeCliente.getText().isEmpty() || txtTelefone.getText().isEmpty() || txtEmail.getText().isEmpty() || dataParaMYSQL.isEmpty() || txtSexo.getText().isEmpty() || txtEstadoCivil.getText().isEmpty() || txtCidade.getText().isEmpty() )){
-                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");  
-             }else{
-            int adicionado = pst.executeUpdate();
-            
-            if(adicionado > 0){
-                JOptionPane.showMessageDialog(null, "Dados do usuário alterado com sucesso");
-                txtIdcliente.setText(null);
-                txtCPF.setText(null);
-                txtNomeCliente.setText(null);
-                txtTelefone.setText(null);
-                txtEmail.setText(null);
-                txtDataNascimento.setText(null);
-                txtSexo.setText(null);
-                txtEstadoCivil.setText(null);
-                txtCidade.setText(null);
-                                                
+            if ((txtIdcliente.getText().isEmpty() || txtCPF.getText().isEmpty() || txtNomeCliente.getText().isEmpty() || txtTelefone.getText().isEmpty() || txtEmail.getText().isEmpty() || dataParaMYSQL.isEmpty() || txtSexo.getText().isEmpty() || txtEstadoCivil.getText().isEmpty() || txtCidade.getText().isEmpty())) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
+            } else {
+                int adicionado = pst.executeUpdate();
+                
+                if (adicionado > 0) {
+                    JOptionPane.showMessageDialog(null, "Dados do usuário alterado com sucesso");
+                    txtIdcliente.setText(null);
+                    txtCPF.setText(null);
+                    txtNomeCliente.setText(null);
+                    txtTelefone.setText(null);
+                    txtEmail.setText(null);
+                    txtDataNascimento.setText(null);
+                    txtSexo.setText(null);
+                    txtEstadoCivil.setText(null);
+                    txtCidade.setText(null);
+                    
+                }
             }
-             }
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e); 
+            JOptionPane.showMessageDialog(null, e);
         }
     }
 
@@ -291,10 +290,18 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        txtCPF.setText("");
+        txtNomeCliente.setText("");
+        txtTelefone.setText("");
+        txtDataNascimento.setText("");
+        txtSexo.setText("");
+        txtEstadoCivil.setText("");
+        txtEmail.setText("");
+        txtCidade.setText("");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-       atualizar();
+        atualizar();
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed

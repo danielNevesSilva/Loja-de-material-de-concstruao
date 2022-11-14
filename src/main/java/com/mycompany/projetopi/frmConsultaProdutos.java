@@ -87,6 +87,11 @@ public class frmConsultaProdutos extends javax.swing.JFrame {
 
         btnApagar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnApagar.setText("apagar");
+        btnApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApagarActionPerformed(evt);
+            }
+        });
 
         jButton5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton5.setText("Cancelar");
@@ -182,6 +187,11 @@ public class frmConsultaProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtProduto.setBackground(Color.white);
     }//GEN-LAST:event_txtProdutoFocusLost
+
+    private void btnApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApagarActionPerformed
+        // TODO add your handling code here
+        txtProduto.setText("");
+    }//GEN-LAST:event_btnApagarActionPerformed
 
     /**
      * @param args the command line arguments

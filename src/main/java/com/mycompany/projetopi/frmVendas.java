@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class frmVendas extends javax.swing.JFrame {
 
+   
+
     /**
      * Creates new form TelaVendendor
      */
@@ -318,6 +320,7 @@ public class frmVendas extends javax.swing.JFrame {
 
     private void btnConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClienteActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnConsultaClienteActionPerformed
 
     private void txtProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoActionPerformed
