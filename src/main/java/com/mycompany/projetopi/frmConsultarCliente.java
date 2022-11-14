@@ -17,7 +17,7 @@ import java.sql.ResultSet;
  * @author daniel.nsilva20
  */
 public class frmConsultarCliente extends javax.swing.JFrame {
-    
+
     Connection conexao = null;
     PreparedStatement pst = null;
     ResultSet st = null;
@@ -30,7 +30,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         conexao = Conexao.conector();
         System.out.println(conexao);
     }
-    
+
     public void consultar() {
         String sql = "select * from cliente where cpf=?";
         try {
@@ -52,19 +52,21 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
-    public void atualizar() {
-        String sql = "update cliente set cpf=?,nome=?,telefone=?,email=?,datanascimento=?,sexo=?,estadocivil=?,cidade=? where idcliente=?";
+
+    private void atualizar() {
+        String sql = "update cliente set nome=?,telefone=?,email=?,datanascimento=?,sexo=?,estadocivil=?,cidade=? where cpf=?";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtCPF.getText());
-            pst.setString(2, txtNomeCliente.getText());
-            pst.setString(3, txtTelefone.getText());
-            pst.setString(4, txtEmail.getText());
+            pst.setString(1, txtNomeCliente.getText());
+            pst.setString(2, txtTelefone.getText());
+            pst.setString(3, txtEmail.getText());
+
             String dia = txtDataNascimento.getText().substring(0, 2);
             String mes = txtDataNascimento.getText().substring(3, 5);
             String ano = txtDataNascimento.getText().substring(6);
             String dataParaMYSQL = ano + "-" + mes + "-" + dia;
+
             pst.setString(5, dataParaMYSQL);
             /* if(txtSexo.getText() = "M"){
                 pst.setString(6,"M");
@@ -77,30 +79,48 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             pst.setString(7, txtEstadoCivil.getText());
             pst.setString(8, txtCidade.getText());
             pst.setString(9, txtIdcliente.getText());
-            
+
             if ((txtIdcliente.getText().isEmpty() || txtCPF.getText().isEmpty() || txtNomeCliente.getText().isEmpty() || txtTelefone.getText().isEmpty() || txtEmail.getText().isEmpty() || dataParaMYSQL.isEmpty() || txtSexo.getText().isEmpty() || txtEstadoCivil.getText().isEmpty() || txtCidade.getText().isEmpty())) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
             } else {
                 int adicionado = pst.executeUpdate();
-                
+
                 if (adicionado > 0) {
                     JOptionPane.showMessageDialog(null, "Dados do usuário alterado com sucesso");
-                    txtIdcliente.setText(null);
-                    txtCPF.setText(null);
-                    txtNomeCliente.setText(null);
-                    txtTelefone.setText(null);
-                    txtEmail.setText(null);
-                    txtDataNascimento.setText(null);
-                    txtSexo.setText(null);
-                    txtEstadoCivil.setText(null);
-                    txtCidade.setText(null);
-                    
+                    pst.setString(4, dataParaMYSQL);
+                    pst.setString(5, txtSexo.getText());
+                    pst.setString(6, txtEstadoCivil.getText());
+                    pst.setString(7, txtCidade.getText());
+                    pst.setString(8, txtIdcliente.getText());
+
+                    if ((txtIdcliente.getText().isEmpty()) || (txtCPF.getText().isEmpty()) || (txtNomeCliente.getText().isEmpty()) || (txtTelefone.getText().isEmpty()) || (txtEmail.getText().isEmpty()) || (dataParaMYSQL.isEmpty()) || (txtSexo.getText().isEmpty()) || (txtEstadoCivil.getText().isEmpty()) || (txtCidade.getText().isEmpty())) {
+                        JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
+                    } else {
+
+                    }
                 }
             }
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+
+    }
+
+    private void remover() {
+        //a estrtura abaixo confirma a remoção do usuario
+        int confirmar = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover este usuário", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (confirmar == JOptionPane.YES_OPTION) {
+            String sql = "delete from cliente where cpf=?";
+            try {
+                pst = conexao.prepareStatement(sql);
+                pst.setString(1, txtCPF.getText());
+                pst.executeUpdate();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+
     }
 
     /**
@@ -289,6 +309,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
         // TODO add your handling code here:
         txtCPF.setText("");
         txtNomeCliente.setText("");
@@ -298,6 +319,8 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         txtEstadoCivil.setText("");
         txtEmail.setText("");
         txtCidade.setText("");
+        remover();
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
@@ -368,8 +391,4 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtSexo;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
-
-    // private void initComponents() {
-    //   throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    //}
 }
