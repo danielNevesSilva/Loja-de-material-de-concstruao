@@ -38,6 +38,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             pst.setString(1, txtCPF.getText());
             st = pst.executeQuery();
             if (st.next()) {
+                txtId.setText(st.getString(1));
                 txtCPF.setText(st.getString(2));
                 txtNomeCliente.setText(st.getString(3));
                 txtTelefone.setText(st.getString(4));
@@ -54,19 +55,18 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     }
 
     private void atualizar() {
-        String sql = "update cliente set nome=?,telefone=?,email=?,datanascimento=?,sexo=?,estadocivil=?,cidade=? where cpf=?";
+        String sql = "update cliente set cpf=?,nome=?,telefone=?,email=?,datanascimento=?,sexo=?,estadocivil=?,cidade=? where idcliente=?";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtCPF.getText());
-            pst.setString(1, txtNomeCliente.getText());
-            pst.setString(2, txtTelefone.getText());
-            pst.setString(3, txtEmail.getText());
+            pst.setString(2, txtNomeCliente.getText());
+            pst.setString(3, txtTelefone.getText());
+            pst.setString(4, txtEmail.getText());
 
             String dia = txtDataNascimento.getText().substring(0, 2);
             String mes = txtDataNascimento.getText().substring(3, 5);
             String ano = txtDataNascimento.getText().substring(6);
             String dataParaMYSQL = ano + "-" + mes + "-" + dia;
-
             pst.setString(5, dataParaMYSQL);
             /* if(txtSexo.getText() = "M"){
                 pst.setString(6,"M");
@@ -78,9 +78,9 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             //pst.setString(6,rbFeminino.getText());
             pst.setString(7, txtEstadoCivil.getText());
             pst.setString(8, txtCidade.getText());
-            pst.setString(9, txtIdcliente.getText());
+            pst.setString(9, txtId.getText());
 
-            if ((txtIdcliente.getText().isEmpty() || txtCPF.getText().isEmpty() || txtNomeCliente.getText().isEmpty() || txtTelefone.getText().isEmpty() || txtEmail.getText().isEmpty() || dataParaMYSQL.isEmpty() || txtSexo.getText().isEmpty() || txtEstadoCivil.getText().isEmpty() || txtCidade.getText().isEmpty())) {
+            if ((txtId.getText().isEmpty() || txtCPF.getText().isEmpty() || txtNomeCliente.getText().isEmpty() || txtTelefone.getText().isEmpty() || txtEmail.getText().isEmpty() || dataParaMYSQL.isEmpty() || txtSexo.getText().isEmpty() || txtEstadoCivil.getText().isEmpty() || txtCidade.getText().isEmpty())) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
             } else {
                 int adicionado = pst.executeUpdate();
@@ -91,9 +91,9 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                     pst.setString(5, txtSexo.getText());
                     pst.setString(6, txtEstadoCivil.getText());
                     pst.setString(7, txtCidade.getText());
-                    pst.setString(8, txtIdcliente.getText());
+                    pst.setString(8, txtId.getText());
 
-                    if ((txtIdcliente.getText().isEmpty()) || (txtCPF.getText().isEmpty()) || (txtNomeCliente.getText().isEmpty()) || (txtTelefone.getText().isEmpty()) || (txtEmail.getText().isEmpty()) || (dataParaMYSQL.isEmpty()) || (txtSexo.getText().isEmpty()) || (txtEstadoCivil.getText().isEmpty()) || (txtCidade.getText().isEmpty())) {
+                    if ((txtCPF.getText().isEmpty()) || (txtNomeCliente.getText().isEmpty()) || (txtTelefone.getText().isEmpty()) || (txtEmail.getText().isEmpty()) || (dataParaMYSQL.isEmpty()) || (txtSexo.getText().isEmpty()) || (txtEstadoCivil.getText().isEmpty()) || (txtCidade.getText().isEmpty())) {
                         JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
                     } else {
 
@@ -104,7 +104,6 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }
 
     private void remover() {
@@ -156,6 +155,8 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         txtCidade = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         txtIdcliente = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -165,7 +166,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("CPF");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 194, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 194, -1));
 
         btnConsultar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnConsultar.setText("Consultar ");
@@ -205,7 +206,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Nome");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Data de nascimento");
@@ -224,7 +225,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 txtCPFFocusLost(evt);
             }
         });
-        jPanel1.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 171, -1));
+        jPanel1.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 171, -1));
 
         txtNomeCliente.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -234,7 +235,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 txtNomeClienteFocusLost(evt);
             }
         });
-        jPanel1.add(txtNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 170, -1));
+        jPanel1.add(txtNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 170, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Cidade");
@@ -242,7 +243,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Telefone");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Email");
@@ -255,7 +256,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("Estado Civil");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
-        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 170, -1));
+        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 170, -1));
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,7 +270,6 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtDataNascimento.setText("  /  /    ");
         jPanel1.add(txtDataNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 150, -1));
         jPanel1.add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 170, -1));
 
@@ -287,11 +287,25 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         txtIdcliente.setText("jTextField2");
         jPanel1.add(txtIdcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(621, 30, 0, -1));
 
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setText("ID");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,6 +375,10 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEstadoCivilActionPerformed
 
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -378,6 +396,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JTextField jTextField1;
@@ -386,6 +405,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtDataNascimento;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEstadoCivil;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtIdcliente;
     private javax.swing.JFormattedTextField txtNomeCliente;
     private javax.swing.JTextField txtSexo;

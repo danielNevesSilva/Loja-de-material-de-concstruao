@@ -83,6 +83,7 @@ com\mycompany\projetopi\frmCadastroCliente$12.class
 com\mycompany\projetopi\model\CadastroCliente.class
 com\mycompany\projetopi\model\Estoque.class
 com\mycompany\projetopi\frmCadastroVendedor$6.class
+com\mycompany\projetopi\frmConsultaProdutos$4.class
 com\mycompany\projetopi\frmCadastroCliente$7.class
 com\mycompany\projetopi\frmConsultarCliente$7.class
 com\mycompany\projetopi\model\Compras.class
