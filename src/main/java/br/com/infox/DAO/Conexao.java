@@ -13,7 +13,7 @@ public class Conexao {
 
         String url = "jdbc:mysql://localhost:3306/projetoevolucao";
         String user = "root";
-        String password = "";
+        String password = "P@$$w0rd";
 
         try {
             Class.forName(driver);

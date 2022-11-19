@@ -32,7 +32,6 @@ public class frmMenu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnVendas = new javax.swing.JButton();
         btnConsultarCliente = new javax.swing.JButton();
-        btnConsultarVendedores = new javax.swing.JButton();
         btnEstoque = new javax.swing.JButton();
         btnConsultarProdutos = new javax.swing.JButton();
         btnRelatorio = new javax.swing.JButton();
@@ -77,15 +76,6 @@ public class frmMenu extends javax.swing.JFrame {
         });
         jPanel1.add(btnConsultarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 93, 220, -1));
 
-        btnConsultarVendedores.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnConsultarVendedores.setText("Consulta vendedores");
-        btnConsultarVendedores.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarVendedoresActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnConsultarVendedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 199, 220, -1));
-
         btnEstoque.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnEstoque.setText("Estoque");
         btnEstoque.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +83,7 @@ public class frmMenu extends javax.swing.JFrame {
                 btnEstoqueActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEstoque, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 252, 220, -1));
+        jPanel1.add(btnEstoque, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 220, -1));
 
         btnConsultarProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnConsultarProdutos.setText("Consulta de produtos");
@@ -111,7 +101,7 @@ public class frmMenu extends javax.swing.JFrame {
                 btnRelatorioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRelatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 305, 220, -1));
+        jPanel1.add(btnRelatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 220, -1));
 
         btnSair.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnSair.setText("Sair");
@@ -120,7 +110,7 @@ public class frmMenu extends javax.swing.JFrame {
                 btnSairActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 358, 220, -1));
+        jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 220, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,7 +125,7 @@ public class frmMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,12 +159,6 @@ public class frmMenu extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
-    private void btnConsultarVendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarVendedoresActionPerformed
-        // TODO add your handling code here:
-        frmConsultarVendedor frmMenu = new frmConsultarVendedor();
-        frmMenu.setVisible(true);
-    }//GEN-LAST:event_btnConsultarVendedoresActionPerformed
-
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
         // TODO add your handling code here:
         frmEstoque frmMenu = new frmEstoque();
@@ -195,7 +179,6 @@ public class frmMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultarCliente;
     private javax.swing.JButton btnConsultarProdutos;
-    private javax.swing.JButton btnConsultarVendedores;
     private javax.swing.JButton btnEstoque;
     private javax.swing.JButton btnRelatorio;
     private javax.swing.JButton btnSair;

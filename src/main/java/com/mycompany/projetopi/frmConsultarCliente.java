@@ -11,6 +11,7 @@ import br.com.infox.DAO.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -43,10 +44,12 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 txtNomeCliente.setText(st.getString(3));
                 txtTelefone.setText(st.getString(4));
                 txtEmail.setText(st.getString(5));
-                txtDataNascimento.setText(st.getDate(6).toString().replaceAll("-", ""));
+                //txtDataNascimento.setText(st.getDate(6).toString().replaceAll("-", ""));
+                SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+                txtDataNascimento.setText(formatador.format(st.getDate(6)));
                 txtSexo.setText(st.getString(7));
                 txtEstadoCivil.setText(st.getString(8));
-                txtCidade.setText(st.getString(9));
+                txtEndereco.setText(st.getString(9));
             } else {
             }
         } catch (Exception e) {
@@ -55,7 +58,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     }
 
     private void atualizar() {
-        String sql = "update cliente set cpf=?,nome=?,telefone=?,email=?,datanascimento=?,sexo=?,estadocivil=?,cidade=? where idcliente=?";
+        String sql = "update cliente set cpf=?,nome=?,telefone=?,email=?,datanascimento=?,sexo=?,estadocivil=?,endereco=? where idcliente=?";
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtCPF.getText());
@@ -77,10 +80,10 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             // pst.setString(6,rbMasculino.getText());
             //pst.setString(6,rbFeminino.getText());
             pst.setString(7, txtEstadoCivil.getText());
-            pst.setString(8, txtCidade.getText());
+            pst.setString(8, txtEndereco.getText());
             pst.setString(9, txtId.getText());
 
-            if ((txtId.getText().isEmpty() || txtCPF.getText().isEmpty() || txtNomeCliente.getText().isEmpty() || txtTelefone.getText().isEmpty() || txtEmail.getText().isEmpty() || dataParaMYSQL.isEmpty() || txtSexo.getText().isEmpty() || txtEstadoCivil.getText().isEmpty() || txtCidade.getText().isEmpty())) {
+            if ((txtId.getText().isEmpty() || txtCPF.getText().isEmpty() || txtNomeCliente.getText().isEmpty() || txtTelefone.getText().isEmpty() || txtEmail.getText().isEmpty() || dataParaMYSQL.isEmpty() || txtSexo.getText().isEmpty() || txtEstadoCivil.getText().isEmpty() || txtEndereco.getText().isEmpty())) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
             } else {
                 int adicionado = pst.executeUpdate();
@@ -90,10 +93,10 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                     pst.setString(4, dataParaMYSQL);
                     pst.setString(5, txtSexo.getText());
                     pst.setString(6, txtEstadoCivil.getText());
-                    pst.setString(7, txtCidade.getText());
+                    pst.setString(7, txtEndereco.getText());
                     pst.setString(8, txtId.getText());
 
-                    if ((txtCPF.getText().isEmpty()) || (txtNomeCliente.getText().isEmpty()) || (txtTelefone.getText().isEmpty()) || (txtEmail.getText().isEmpty()) || (dataParaMYSQL.isEmpty()) || (txtSexo.getText().isEmpty()) || (txtEstadoCivil.getText().isEmpty()) || (txtCidade.getText().isEmpty())) {
+                    if ((txtCPF.getText().isEmpty()) || (txtNomeCliente.getText().isEmpty()) || (txtTelefone.getText().isEmpty()) || (txtEmail.getText().isEmpty()) || (dataParaMYSQL.isEmpty()) || (txtSexo.getText().isEmpty()) || (txtEstadoCivil.getText().isEmpty()) || (txtEndereco.getText().isEmpty())) {
                         JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
                     } else {
 
@@ -152,7 +155,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         txtDataNascimento = new javax.swing.JFormattedTextField();
         txtSexo = new javax.swing.JTextField();
         txtEstadoCivil = new javax.swing.JTextField();
-        txtCidade = new javax.swing.JTextField();
+        txtEndereco = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         txtIdcliente = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -238,7 +241,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         jPanel1.add(txtNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 170, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("Cidade");
+        jLabel4.setText("Endereço");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -279,7 +282,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtEstadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 170, -1));
-        jPanel1.add(txtCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 260, -1));
+        jPanel1.add(txtEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 260, -1));
 
         jTextField1.setText("jTextField1");
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 40, 0, -1));
@@ -332,7 +335,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         txtSexo.setText("");
         txtEstadoCivil.setText("");
         txtEmail.setText("");
-        txtCidade.setText("");
+        txtEndereco.setText("");
         remover();
 
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -401,9 +404,9 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JFormattedTextField txtCPF;
-    private javax.swing.JTextField txtCidade;
     private javax.swing.JFormattedTextField txtDataNascimento;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtEstadoCivil;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtIdcliente;
