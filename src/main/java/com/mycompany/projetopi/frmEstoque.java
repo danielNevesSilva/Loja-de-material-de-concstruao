@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.mycompany.projetopi;
 
 import java.awt.Color;
@@ -17,19 +14,29 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author daniel.nsilva20
- */
+
 public class frmEstoque extends javax.swing.JFrame {
 
    
 
-    /**
-     * Creates new form frmEstoque
-     */
+    
     public frmEstoque() {
       initComponents();
+      
+      ArrayList<Estoque> lista = EstoqueDAO.listar();
+        DefaultTableModel modelo = (DefaultTableModel) jtProdutos.getModel();
+
+        modelo.setRowCount(0);
+
+        for (Estoque item : lista) {
+            modelo.addRow(new String[]{
+                String.valueOf(item.getIdprod()),
+                item.getProduto(),
+                String.valueOf(item.getQuantidade()),
+                String.valueOf(item.getpCompra()),
+                String.valueOf(item.getpVenda()),});
+
+        }
     }
 
    
@@ -298,6 +305,7 @@ public class frmEstoque extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
@@ -380,6 +388,20 @@ public class frmEstoque extends javax.swing.JFrame {
                 && (txtPrecoVenda.getText().length() > 0)) {
 
             JOptionPane.showMessageDialog(null, "Dados Validados!");
+            ArrayList<Estoque> lista = EstoqueDAO.listar();
+        DefaultTableModel modelo = (DefaultTableModel) jtProdutos.getModel();
+
+        modelo.setRowCount(0);
+
+        for (Estoque item : lista) {
+            modelo.addRow(new String[]{
+                String.valueOf(item.getIdprod()),
+                item.getProduto(),
+                String.valueOf(item.getQuantidade()),
+                String.valueOf(item.getpCompra()),
+                String.valueOf(item.getpVenda()),});
+
+        }
 
         } else {
             JOptionPane.showMessageDialog(null, "Confira os campos Obrigatorios!");
