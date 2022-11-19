@@ -6,6 +6,12 @@ import java.sql.Statement;
 
 public class Conexao {
 
+    static Connection Connection() {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+    
+    Connection conexao;
+
     public static Connection conector() {
         java.sql.Connection conexao = null;
 
@@ -13,7 +19,7 @@ public class Conexao {
 
         String url = "jdbc:mysql://localhost:3306/projetoevolucao";
         String user = "root";
-        String password = "P@$$w0rd";
+        String password = "";
 
         try {
             Class.forName(driver);
@@ -25,5 +31,7 @@ public class Conexao {
         }
 
     }
+
+ 
 
 }

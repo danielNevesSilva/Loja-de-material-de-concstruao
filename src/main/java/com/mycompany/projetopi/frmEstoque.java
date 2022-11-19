@@ -9,56 +9,32 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import br.com.infox.DAO.Conexao;
+import br.com.infox.DAO.EstoqueDAO;
+import static br.com.infox.DAO.EstoqueDAO.listar;
+import com.mycompany.projetopi.model.Estoque;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author daniel.nsilva20
  */
 public class frmEstoque extends javax.swing.JFrame {
-Connection conexao = null;
-PreparedStatement pst = null;
-ResultSet st = null;
+
+   
+
     /**
      * Creates new form frmEstoque
      */
     public frmEstoque() {
-        initComponents();
-        conexao = Conexao.conector();
-        System.out.println(conexao);
+      initComponents();
     }
-    
-    private void cadastrar(){
-    String sql = "insert into estoque(produto,quantidade,pcompra,pvenda) values(?,?,?,?)";
-        try {
-             pst = conexao.prepareStatement(sql);
-             pst.setString(1,txtProduto.getText());
-             pst.setString(2,txtQuantidade.getText());
-             pst.setString(3,txtPrecoCompra.getText());
-             pst.setString(4,txtPrecoVenda.getText());
-              pst.executeUpdate();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-    
-    private void consultar(){
-        String sql = "select * from estoque where idprod=?";
-        try {
-            pst = conexao.prepareStatement(sql);
-            pst.setString(1,txtCodigo.getText());
-            st = pst.executeQuery();
-            if (st.next()) {
-                txtProduto.setText(st.getString(2));
-                txtQuantidade.setText(st.getString(3));
-                txtPrecoCompra.setText(st.getString(4));
-                txtPrecoVenda.setText(st.getString(5));
-            } else {
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
+
+   
 //8
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -383,8 +359,21 @@ ResultSet st = null;
     }//GEN-LAST:event_txtProdutoActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-     cadastrar();
-     
+
+        String produto = txtProduto.getText();
+        int quantidade = Integer.parseInt(txtQuantidade.getText());
+        double pCompra = Double.parseDouble(txtPrecoCompra.getText());
+        double pVenda = Double.parseDouble(txtPrecoVenda.getText());
+
+        Estoque objEstoque = new Estoque(produto, quantidade, pCompra, pVenda);
+        boolean retorno = EstoqueDAO.salvar(objEstoque);
+
+        if (retorno) {
+            JOptionPane.showMessageDialog(null, "Produtos Cadastrados com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Falha na Gravação!");
+        }
+
         if ((txtProduto.getText().length() > 0)
                 && (txtQuantidade.getText().length() > 0)
                 && (txtPrecoCompra.getText().length() > 0)
@@ -395,14 +384,26 @@ ResultSet st = null;
         } else {
             JOptionPane.showMessageDialog(null, "Confira os campos Obrigatorios!");
         }
+
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        consultar();
+        ArrayList<Estoque> lista = EstoqueDAO.listar();
+        DefaultTableModel modelo = (DefaultTableModel) jtProdutos.getModel();
+
+        modelo.setRowCount(0);
+
+        for (Estoque item : lista) {
+            modelo.addRow(new String[]{
+                String.valueOf(item.getIdprod()),
+                item.getProduto(),
+                String.valueOf(item.getQuantidade()),
+                String.valueOf(item.getpCompra()),
+                String.valueOf(item.getpVenda()),});
+
+        }
     }//GEN-LAST:event_btnConsultarActionPerformed
-   private void tabela(javax.swing.JTable jtProdutos){
-       cadastrar();
-   }
+   
     /**
      * @param args the command line arguments
      */
@@ -426,4 +427,8 @@ ResultSet st = null;
     private javax.swing.JTextField txtProduto;
     private javax.swing.JTextField txtQuantidade;
     // End of variables declaration//GEN-END:variables
+
+    private int doubleValue(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

@@ -1,4 +1,5 @@
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Relatorio.java
+C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\Connection\ConnectionFactory.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConsultaProdutos.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmEstoque.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmVendas.java
@@ -6,16 +7,13 @@ C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycom
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Vendas.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\Conexao.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Estoque.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\ConsultarVendedor.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\CadastroCliente.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmRelatorio.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmCadastroCliente.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConsultarVendedor.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\CadastroVendedor.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConsultarCliente.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmMenu.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\Main.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\ConsultarCliente.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmCadastroVendedor.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Compras.java
+C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\EstoqueDAO.java
 C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\ConsultaProdutos.java
