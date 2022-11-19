@@ -83,4 +83,13 @@ public class EstoqueDAO {
 
         return listaRetorno;
     }
+    
+    public static void Excluir(int codigo) throws SQLException{
+        
+        String registroExcluir = "delete estoque where idprod = ";
+        Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
+        PreparedStatement comandoSQL = conexao.prepareStatement(registroExcluir+codigo);
+        JOptionPane.showMessageDialog(null, "Registro Excluido com sucesso");
+    }
+    
 }
