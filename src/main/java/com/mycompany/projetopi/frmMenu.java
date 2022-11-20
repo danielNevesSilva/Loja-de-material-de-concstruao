@@ -33,7 +33,6 @@ public class frmMenu extends javax.swing.JFrame {
         btnVendas = new javax.swing.JButton();
         btnConsultarCliente = new javax.swing.JButton();
         btnEstoque = new javax.swing.JButton();
-        btnConsultarProdutos = new javax.swing.JButton();
         btnRelatorio = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
 
@@ -74,7 +73,7 @@ public class frmMenu extends javax.swing.JFrame {
                 btnConsultarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 93, 220, -1));
+        jPanel1.add(btnConsultarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 220, -1));
 
         btnEstoque.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnEstoque.setText("Estoque");
@@ -83,16 +82,7 @@ public class frmMenu extends javax.swing.JFrame {
                 btnEstoqueActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEstoque, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 220, -1));
-
-        btnConsultarProdutos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnConsultarProdutos.setText("Consulta de produtos");
-        btnConsultarProdutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarProdutosActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnConsultarProdutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 146, 220, -1));
+        jPanel1.add(btnEstoque, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 220, -1));
 
         btnRelatorio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnRelatorio.setText("Relatorio");
@@ -101,7 +91,7 @@ public class frmMenu extends javax.swing.JFrame {
                 btnRelatorioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRelatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 220, -1));
+        jPanel1.add(btnRelatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 220, -1));
 
         btnSair.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnSair.setText("Sair");
@@ -110,7 +100,7 @@ public class frmMenu extends javax.swing.JFrame {
                 btnSairActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 220, -1));
+        jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 220, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,12 +133,6 @@ public class frmMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnConsultarClienteActionPerformed
 
-    private void btnConsultarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarProdutosActionPerformed
-        // TODO add your handling code here:
-        frmConsultaProdutos frmMenu = new frmConsultaProdutos();
-        frmMenu.setVisible(true);
-    }//GEN-LAST:event_btnConsultarProdutosActionPerformed
-
     private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
         // TODO add your handling code here:
         frmRelatorio frmMenu = new frmRelatorio();
@@ -172,14 +156,13 @@ public class frmMenu extends javax.swing.JFrame {
         frmMenu.setVisible(true);
 
     }//GEN-LAST:event_btnVendasMouseClicked
-
+ 
     /**
      * @param args the command line arguments
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultarCliente;
-    private javax.swing.JButton btnConsultarProdutos;
     private javax.swing.JButton btnEstoque;
     private javax.swing.JButton btnRelatorio;
     private javax.swing.JButton btnSair;

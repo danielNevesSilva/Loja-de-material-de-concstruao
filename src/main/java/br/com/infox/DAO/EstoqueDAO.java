@@ -67,7 +67,8 @@ public class EstoqueDAO {
                 }
 
             }
-
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e.getMessage());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
@@ -83,13 +84,53 @@ public class EstoqueDAO {
 
         return listaRetorno;
     }
-    
-    public static void Excluir(int codigo) throws SQLException{
-        
-        String registroExcluir = "delete estoque where idprod = ";
-        Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
-        PreparedStatement comandoSQL = conexao.prepareStatement(registroExcluir+codigo);
-        JOptionPane.showMessageDialog(null, "Registro Excluido com sucesso");
+
+    public static boolean Excluir(int codigo) {
+boolean retorno = false;
+        try {
+            Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
+           PreparedStatement comandoSQL = conexao.prepareStatement("delete from estoque where idprod=?");
+           comandoSQL.setInt(1,codigo);
+           
+         int linhasAfetadas = comandoSQL.executeUpdate();
+         
+         if(linhasAfetadas > 0){
+             retorno = true;
+         }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    return retorno;
     }
-    
+
+    public static boolean alterar(Estoque obj) {
+        boolean retorno = false;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
+
+            PreparedStatement comandoSQL = conexao.prepareStatement("update estoque set produto=?,quantidade=?,pcompra=?,pvenda=? where idprod=?");
+            comandoSQL.setString(1, obj.getProduto());
+            comandoSQL.setInt(2, obj.getQuantidade());
+            comandoSQL.setDouble(3, obj.getpCompra());
+            comandoSQL.setDouble(4, obj.getpVenda());
+            comandoSQL.setInt(5, obj.getIdprod());
+
+            int linhasAfetadas = comandoSQL.executeUpdate();
+
+            if (linhasAfetadas > 0) {
+                retorno = true;
+            }
+
+            JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+
+            /*   } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);*/
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return retorno;
+    }
+
 }
