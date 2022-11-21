@@ -35,6 +35,7 @@ public class frmMenu extends javax.swing.JFrame {
         btnEstoque = new javax.swing.JButton();
         btnRelatorio = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -50,7 +51,6 @@ public class frmMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Menu", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 24))); // NOI18N
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnVendas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnVendas.setText("Vendas");
@@ -64,7 +64,6 @@ public class frmMenu extends javax.swing.JFrame {
                 btnVendasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 40, 220, -1));
 
         btnConsultarCliente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnConsultarCliente.setText("Consultar cliente");
@@ -73,16 +72,14 @@ public class frmMenu extends javax.swing.JFrame {
                 btnConsultarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 220, -1));
 
         btnEstoque.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnEstoque.setText("Estoque");
+        btnEstoque.setText("Consultar Produto");
         btnEstoque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEstoqueActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEstoque, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 220, -1));
 
         btnRelatorio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnRelatorio.setText("Relatorio");
@@ -91,7 +88,6 @@ public class frmMenu extends javax.swing.JFrame {
                 btnRelatorioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRelatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 220, -1));
 
         btnSair.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnSair.setText("Sair");
@@ -100,7 +96,47 @@ public class frmMenu extends javax.swing.JFrame {
                 btnSairActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 220, -1));
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton1.setText("Estoque");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(123, 123, 123))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(btnVendas)
+                .addGap(9, 9, 9)
+                .addComponent(btnConsultarCliente)
+                .addGap(9, 9, 9)
+                .addComponent(btnEstoque)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRelatorio)
+                .addGap(9, 9, 9)
+                .addComponent(btnSair)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,14 +144,14 @@ public class frmMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,6 +178,7 @@ public class frmMenu extends javax.swing.JFrame {
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
         dispose();
+
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
@@ -151,22 +188,29 @@ public class frmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEstoqueActionPerformed
 
     private void btnVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseClicked
-
+        
         frmVendas frmMenu = new frmVendas();
         frmMenu.setVisible(true);
 
     }//GEN-LAST:event_btnVendasMouseClicked
- 
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        frmEstoque frmMenu = new frmEstoque();
+        frmMenu.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultarCliente;
     private javax.swing.JButton btnEstoque;
     private javax.swing.JButton btnRelatorio;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnVendas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
