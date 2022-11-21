@@ -146,7 +146,7 @@ public class frmMenu extends javax.swing.JFrame {
 
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
         // TODO add your handling code here:
-        frmEstoque frmMenu = new frmEstoque();
+        TelaConsultaEstoque frmMenu = new TelaConsultaEstoque();
         frmMenu.setVisible(true);
     }//GEN-LAST:event_btnEstoqueActionPerformed
 

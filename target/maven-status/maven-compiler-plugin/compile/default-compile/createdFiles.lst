@@ -29,6 +29,7 @@ com\mycompany\projetopi\frmVendas$7.class
 com\mycompany\projetopi\frmCadastroCliente$14.class
 com\mycompany\projetopi\frmCadastroCliente$3.class
 com\mycompany\projetopi\frmConsultarCliente$2.class
+com\mycompany\projetopi\model\Cliente.class
 com\mycompany\projetopi\frmVendas$13.class
 com\mycompany\projetopi\model\Vendas.class
 com\mycompany\projetopi\model\ConsultaProdutos.class
@@ -38,6 +39,7 @@ com\mycompany\projetopi\frmConsultarCliente$5.class
 com\mycompany\projetopi\frmEstoque$4.class
 com\mycompany\projetopi\frmCadastroCliente$9.class
 com\mycompany\projetopi\frmVendas$4.class
+br\com\infox\DAO\ClienteDAO.class
 com\mycompany\projetopi\frmConsultarCliente$6.class
 com\mycompany\projetopi\frmEstoque$2.class
 com\mycompany\projetopi\frmEstoque$5.class

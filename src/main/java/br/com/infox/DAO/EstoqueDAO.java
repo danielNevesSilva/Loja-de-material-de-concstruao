@@ -56,7 +56,7 @@ public class EstoqueDAO {
             rs = comandoSQL.executeQuery();
             if (rs != null) {
                 while (rs.next()) {
-                    Estoque item = new Estoque();
+                     Estoque item = new Estoque();
                     item.setIdprod(rs.getInt("idprod"));
                     item.setProduto(rs.getString("produto"));
                     item.setQuantidade(rs.getInt("quantidade"));
@@ -86,9 +86,9 @@ public class EstoqueDAO {
     }
 
     public static boolean Excluir(int codigo) {
-boolean retorno = false;
+     boolean retorno = false;
         try {
-            Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
+           Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
            PreparedStatement comandoSQL = conexao.prepareStatement("delete from estoque where idprod=?");
            comandoSQL.setInt(1,codigo);
            

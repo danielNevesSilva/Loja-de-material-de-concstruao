@@ -4,11 +4,15 @@
  */
 package com.mycompany.projetopi;
 
+import br.com.infox.DAO.ClienteDAO;
 import br.com.infox.DAO.Conexao;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import br.com.infox.DAO.Conexao;
+import com.mycompany.projetopi.model.Cliente;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
@@ -28,8 +32,8 @@ public class frmConsultarCliente extends javax.swing.JFrame {
      */
     public frmConsultarCliente() {
         initComponents();
-        conexao = Conexao.conector();
-        System.out.println(conexao);
+        lblid.setVisible(false);
+                
     }
 
     public void consultar() {
@@ -39,7 +43,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
             pst.setString(1, txtCPF.getText());
             st = pst.executeQuery();
             if (st.next()) {
-                txtId.setText(st.getString(1));
+                lblid.setText(st.getString(1));
                 txtCPF.setText(st.getString(2));
                 txtNomeCliente.setText(st.getString(3));
                 txtTelefone.setText(st.getString(4));
@@ -135,6 +139,8 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jProgressBar1 = new javax.swing.JProgressBar();
+        txtId = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnConsultar = new javax.swing.JButton();
@@ -158,8 +164,16 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         txtEndereco = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         txtIdcliente = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
+        lblid = new javax.swing.JLabel();
+
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setText("ID");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -169,7 +183,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("CPF");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 194, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 194, -1));
 
         btnConsultar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnConsultar.setText("Consultar ");
@@ -209,7 +223,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Nome");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Data de nascimento");
@@ -228,7 +242,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 txtCPFFocusLost(evt);
             }
         });
-        jPanel1.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 171, -1));
+        jPanel1.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 171, -1));
 
         txtNomeCliente.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -238,7 +252,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 txtNomeClienteFocusLost(evt);
             }
         });
-        jPanel1.add(txtNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 170, -1));
+        jPanel1.add(txtNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 200, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Endereço");
@@ -246,7 +260,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Telefone");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Email");
@@ -259,7 +273,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("Estado Civil");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
-        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 170, -1));
+        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 170, -1));
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,7 +295,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 txtEstadoCivilActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEstadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 170, -1));
+        jPanel1.add(txtEstadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 190, -1));
         jPanel1.add(txtEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 260, -1));
 
         jTextField1.setText("jTextField1");
@@ -289,17 +303,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
         txtIdcliente.setText("jTextField2");
         jPanel1.add(txtIdcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(621, 30, 0, -1));
-
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel9.setText("ID");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-
-        txtId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, -1));
+        jPanel1.add(lblid, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 20, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -312,9 +316,9 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE))
         );
 
         pack();
@@ -323,7 +327,46 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        consultar();
+        String id = lblid.getText();
+        String cpf = txtCPF.getText();
+        String nome = txtNomeCliente.getText();
+        String telefone = txtTelefone.getText();
+        String email = txtEmail.getText();
+        String datanascimento = txtDataNascimento.getText().toString().replaceAll("-", " ");
+        String sexo = txtSexo.getText();
+        String estadoCivil = txtEstadoCivil.getText();
+        String endereco = txtEndereco.getText();
+        
+         Cliente objCliente = new Cliente(cpf, nome, telefone, email, datanascimento, sexo, estadoCivil, endereco);
+     boolean retorno = ClienteDAO.consultar(objCliente);
+        if (retorno) {
+        JOptionPane.showMessageDialog(null, "Produtos Cadastrados com sucesso!");
+        } else {
+        JOptionPane.showMessageDialog(null, "Falha na Consulta!");
+        }
+        
+        
+        
+        
+        /*String sql = "select * from cliente where cpf=?";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtCPF.getText());
+            st = pst.executeQuery();
+            if (st.next()) {
+                lblid.setText(st.getString(1));
+                txtCPF.setText(st.getString(2));
+                txtNomeCliente.setText(st.getString(3));
+                txtTelefone.setText(st.getString(4));
+                txtEmail.setText(st.getString(5));
+                //txtDataNascimento.setText(st.getDate(6).toString().replaceAll("-", ""));
+                SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+                txtDataNascimento.setText(formatador.format(st.getDate(6)));
+                txtSexo.setText(st.getString(7));
+                txtEstadoCivil.setText(st.getString(8));
+                txtEndereco.setText(st.getString(9));
+            } else {
+            }*/        
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -404,6 +447,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblid;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JFormattedTextField txtDataNascimento;
     private javax.swing.JTextField txtEmail;

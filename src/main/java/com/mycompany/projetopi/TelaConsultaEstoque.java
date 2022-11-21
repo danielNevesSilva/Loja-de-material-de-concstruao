@@ -21,10 +21,13 @@ public class TelaConsultaEstoque extends javax.swing.JFrame {
      */
     public TelaConsultaEstoque(Estoque obj) {
         initComponents();
+        
+        
     }
 
     TelaConsultaEstoque() {
         initComponents();
+        
     }
 
     
