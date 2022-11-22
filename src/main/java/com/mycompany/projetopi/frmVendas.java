@@ -6,6 +6,7 @@ package com.mycompany.projetopi;
 
 import br.com.infox.DAO.EstoqueDAO;
 import br.com.infox.DAO.VendasDAO;
+import br.com.infox.DAO.VendasProdutosDAO;
 import com.mycompany.projetopi.frmCadastroCliente;
 import com.mycompany.projetopi.model.Cliente;
 import com.mycompany.projetopi.model.Estoque;
@@ -71,7 +72,7 @@ public class frmVendas extends javax.swing.JFrame {
         btnCadastrar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tblClientes = new javax.swing.JTable();
+        tblListaProdutos = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -180,6 +181,11 @@ public class frmVendas extends javax.swing.JFrame {
         jPanel1.add(txtQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, -1, -1));
 
         btnAdicionar.setText("Adicionar");
+        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
         btnRemover.setText("Remover");
@@ -223,17 +229,17 @@ public class frmVendas extends javax.swing.JFrame {
         jButton2.setText("Cancelar");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 100, -1));
 
-        tblClientes.setModel(new javax.swing.table.DefaultTableModel(
+        tblListaProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Produto", "Quantidade", "Preço", "Desconto"
+                "Produto", "Quantidade", "Preço"
             }
         ));
-        jScrollPane3.setViewportView(tblClientes);
+        jScrollPane3.setViewportView(tblListaProdutos);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 320, 140));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 320, 140));
 
         jLabel6.setText("Nome");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
@@ -349,17 +355,12 @@ public class frmVendas extends javax.swing.JFrame {
 
     private void txtProdutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProdutoKeyTyped
         // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if ((c < '0') || (c > '9') && (c != KeyEvent.VK_BACK_SPACE)) {
-            evt.consume();
-            JOptionPane.showMessageDialog(this, "Digite apenas numeros");
-
-        }
+        
     }//GEN-LAST:event_txtProdutoKeyTyped
 
     private void btnConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClienteActionPerformed
         // TODO add your handling code here:
-        ArrayList<Cliente> lista = VendasDAO.consultar(txtCPF.getText());
+        ArrayList<Cliente> lista = VendasDAO.consultarCliente(txtCPF.getText());
 
         DefaultTableModel modelo = (DefaultTableModel) tblDadosCliente.getModel();
 
@@ -378,6 +379,7 @@ public class frmVendas extends javax.swing.JFrame {
 
     private void txtProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_txtProdutoActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
@@ -421,6 +423,25 @@ public class frmVendas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCPFActionPerformed
 
+    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Estoque> lista = VendasProdutosDAO.consultarProduto(txtProduto.getText());
+
+        DefaultTableModel modelo = (DefaultTableModel) tblListaProdutos.getModel();
+
+        modelo.setRowCount(0);
+
+        for (Estoque item : lista) {
+            modelo.addRow(new String[]{
+                String.valueOf(item.getProduto()),
+                String.valueOf(item.getQuantidade()),
+                String.valueOf(item.getpVenda())
+            });
+
+        }
+
+    }//GEN-LAST:event_btnAdicionarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -454,8 +475,8 @@ public class frmVendas extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTable tblClientes;
     private javax.swing.JTable tblDadosCliente;
+    private javax.swing.JTable tblListaProdutos;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JTextField txtDesconto;
     private javax.swing.JTextField txtProduto;

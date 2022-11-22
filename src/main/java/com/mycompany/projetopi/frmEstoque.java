@@ -6,13 +6,13 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 import br.com.infox.DAO.Conexao;
 import br.com.infox.DAO.EstoqueDAO;
-import static br.com.infox.DAO.EstoqueDAO.listar;
 import com.mycompany.projetopi.model.Estoque;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import static br.com.infox.DAO.EstoqueDAO.listarEstoque;
 
 public class frmEstoque extends javax.swing.JFrame {
 

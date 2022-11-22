@@ -238,7 +238,7 @@ public class TelaConsultaEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        ArrayList<Estoque> lista = EstoqueDAO.listar();
+        ArrayList<Estoque> lista = EstoqueDAO.listarEstoque();
         
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         
