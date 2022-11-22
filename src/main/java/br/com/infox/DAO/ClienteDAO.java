@@ -55,6 +55,7 @@ public class ClienteDAO {
         }
         return retorno;
     }
+
 public static boolean consultar(Cliente obj){
    ResultSet rs = null;
    boolean retorno = false;

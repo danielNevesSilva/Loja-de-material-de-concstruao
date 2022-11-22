@@ -94,4 +94,8 @@ public class Cliente {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
+
+    public Object getpVenda() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

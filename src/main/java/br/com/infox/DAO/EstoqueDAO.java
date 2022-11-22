@@ -45,7 +45,7 @@ public class EstoqueDAO {
         return retorno;
     }
 
-    public static ArrayList<Estoque> listar() {
+    public static ArrayList<Estoque> listarEstoque() {
         ArrayList<Estoque> listaRetorno = new ArrayList<>();
         ResultSet rs = null;
 
@@ -56,7 +56,7 @@ public class EstoqueDAO {
             rs = comandoSQL.executeQuery();
             if (rs != null) {
                 while (rs.next()) {
-                     Estoque item = new Estoque();
+                    Estoque item = new Estoque();
                     item.setIdprod(rs.getInt("idprod"));
                     item.setProduto(rs.getString("produto"));
                     item.setQuantidade(rs.getInt("quantidade"));
@@ -86,21 +86,21 @@ public class EstoqueDAO {
     }
 
     public static boolean Excluir(int codigo) {
-     boolean retorno = false;
+        boolean retorno = false;
         try {
-           Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
-           PreparedStatement comandoSQL = conexao.prepareStatement("delete from estoque where idprod=?");
-           comandoSQL.setInt(1,codigo);
-           
-         int linhasAfetadas = comandoSQL.executeUpdate();
-         
-         if(linhasAfetadas > 0){
-             retorno = true;
-         }
+            Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
+            PreparedStatement comandoSQL = conexao.prepareStatement("delete from estoque where idprod=?");
+            comandoSQL.setInt(1, codigo);
+
+            int linhasAfetadas = comandoSQL.executeUpdate();
+
+            if (linhasAfetadas > 0) {
+                retorno = true;
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-    return retorno;
+        return retorno;
     }
 
     public static boolean alterar(Estoque obj) {
