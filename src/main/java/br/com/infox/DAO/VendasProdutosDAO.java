@@ -29,7 +29,7 @@ public class VendasProdutosDAO {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
             PreparedStatement comandoSQL = conexao.prepareStatement("select idprod,produto,quantidade from estoque where produto like ?");
-            comandoSQL.setString(1, nomeProduto);
+            
             rs = comandoSQL.executeQuery();
             if (rs != null) {
                 while (rs.next()) {

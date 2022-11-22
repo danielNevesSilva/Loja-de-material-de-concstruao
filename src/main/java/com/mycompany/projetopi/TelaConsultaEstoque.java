@@ -238,7 +238,7 @@ public class TelaConsultaEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        ArrayList<Estoque> lista = EstoqueDAO.listarEstoque();
+        ArrayList<Estoque> lista = EstoqueDAO.listarEstoque(txtProduto.getText());
         
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         
@@ -247,7 +247,7 @@ public class TelaConsultaEstoque extends javax.swing.JFrame {
         for (Estoque item : lista){
             modelo.addRow(new String[]{
                 String.valueOf(item.getIdprod()),
-                item.getProduto(),
+                String.valueOf(item.getProduto()),
                 String.valueOf(item.getQuantidade()),
                 String.valueOf(item.getpCompra()),
                 String.valueOf(item.getpVenda())

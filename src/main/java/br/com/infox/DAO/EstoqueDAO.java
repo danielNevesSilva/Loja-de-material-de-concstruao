@@ -45,14 +45,15 @@ public class EstoqueDAO {
         return retorno;
     }
 
-    public static ArrayList<Estoque> listarEstoque() {
+    public static ArrayList<Estoque> listarEstoque(String nomeProduto) {
         ArrayList<Estoque> listaRetorno = new ArrayList<>();
         ResultSet rs = null;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
-            PreparedStatement comandoSQL = conexao.prepareStatement("select * from estoque");
+            PreparedStatement comandoSQL = conexao.prepareStatement("select * from estoque where produto like ?");
+            comandoSQL.setString(1, nomeProduto);
             rs = comandoSQL.executeQuery();
             if (rs != null) {
                 while (rs.next()) {
