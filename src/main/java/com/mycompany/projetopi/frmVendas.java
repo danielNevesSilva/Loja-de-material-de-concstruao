@@ -4,10 +4,16 @@
  */
 package com.mycompany.projetopi;
 
+import br.com.infox.DAO.EstoqueDAO;
+import br.com.infox.DAO.VendasDAO;
 import com.mycompany.projetopi.frmCadastroCliente;
+import com.mycompany.projetopi.model.Cliente;
+import com.mycompany.projetopi.model.Estoque;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,13 +21,20 @@ import javax.swing.JOptionPane;
  */
 public class frmVendas extends javax.swing.JFrame {
 
-   
+    public Cliente objCliente = null;
 
     /**
      * Creates new form TelaVendendor
      */
     public frmVendas() {
         initComponents();
+    }
+
+    public frmVendas(Cliente obj) {
+        initComponents();
+        objCliente = obj;
+        txtCPF.setText(String.valueOf(obj.getCpf()));
+
     }
 
     /**
@@ -37,6 +50,8 @@ public class frmVendas extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jLabel10 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -50,15 +65,13 @@ public class frmVendas extends javax.swing.JFrame {
         btnAdicionar = new javax.swing.JButton();
         btnRemover = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        listClientes = new javax.swing.JList<>();
         txtDesconto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         cbVendedores = new javax.swing.JComboBox<>();
         btnCadastrar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblClientes = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -66,6 +79,8 @@ public class frmVendas extends javax.swing.JFrame {
         txtCPF = new javax.swing.JFormattedTextField();
         jLabel11 = new javax.swing.JLabel();
         txtValorTotal = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblDadosCliente = new javax.swing.JTable();
 
         jTextField1.setText("Vendedo");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +94,19 @@ public class frmVendas extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         jLabel10.setText("jLabel10");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -161,10 +189,6 @@ public class frmVendas extends javax.swing.JFrame {
         jLabel4.setText("Lista de Produtos");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, -1, -1));
 
-        jScrollPane2.setViewportView(listClientes);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 57, 330, 103));
-
         txtDesconto.setText("Desconto");
         txtDesconto.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -199,7 +223,7 @@ public class frmVendas extends javax.swing.JFrame {
         jButton2.setText("Cancelar");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 100, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -207,9 +231,9 @@ public class frmVendas extends javax.swing.JFrame {
                 "Produto", "Quantidade", "Preço", "Desconto"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(tblClientes);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 350, 140));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 320, 140));
 
         jLabel6.setText("Nome");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
@@ -247,6 +271,18 @@ public class frmVendas extends javax.swing.JFrame {
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, -1, -1));
         jPanel1.add(txtValorTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 440, 60, -1));
 
+        tblDadosCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "CPF", "Telefone"
+            }
+        ));
+        jScrollPane4.setViewportView(tblDadosCliente);
+
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 310, 120));
+
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -254,8 +290,9 @@ public class frmVendas extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,8 +306,9 @@ public class frmVendas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 4, Short.MAX_VALUE)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +359,21 @@ public class frmVendas extends javax.swing.JFrame {
 
     private void btnConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClienteActionPerformed
         // TODO add your handling code here:
-        
+        ArrayList<Cliente> lista = VendasDAO.consultar(txtCPF.getText());
+
+        DefaultTableModel modelo = (DefaultTableModel) tblDadosCliente.getModel();
+
+        modelo.setRowCount(0);
+
+        for (Cliente item : lista) {
+            modelo.addRow(new String[]{
+                String.valueOf(item.getCpf()),
+                String.valueOf(item.getNome()),
+                String.valueOf(item.getTelefone())
+            });
+
+        }
+
     }//GEN-LAST:event_btnConsultaClienteActionPerformed
 
     private void txtProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoActionPerformed
@@ -396,12 +448,14 @@ public class frmVendas extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JList<String> listClientes;
+    private javax.swing.JTable tblClientes;
+    private javax.swing.JTable tblDadosCliente;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JTextField txtDesconto;
     private javax.swing.JTextField txtProduto;

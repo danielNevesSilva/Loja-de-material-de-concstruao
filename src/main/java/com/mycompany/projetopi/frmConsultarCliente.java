@@ -5,14 +5,10 @@
 package com.mycompany.projetopi;
 
 import br.com.infox.DAO.ClienteDAO;
-import br.com.infox.DAO.Conexao;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import br.com.infox.DAO.Conexao;
 import com.mycompany.projetopi.model.Cliente;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;

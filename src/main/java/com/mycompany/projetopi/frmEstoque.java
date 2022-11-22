@@ -20,7 +20,6 @@ public class frmEstoque extends javax.swing.JFrame {
 
     public frmEstoque() {
         initComponents();
-
     }
 
     public frmEstoque(Estoque obj) {

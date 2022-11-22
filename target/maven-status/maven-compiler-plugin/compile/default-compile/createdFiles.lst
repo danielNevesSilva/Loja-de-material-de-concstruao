@@ -45,6 +45,7 @@ com\mycompany\projetopi\frmEstoque$2.class
 com\mycompany\projetopi\frmEstoque$5.class
 com\mycompany\projetopi\frmVendas$1.class
 com\mycompany\projetopi\Main.class
+com\mycompany\projetopi\frmMenu$7.class
 br\com\infox\DAO\EstoqueDAO.class
 com\mycompany\projetopi\frmCadastroCliente$8.class
 com\mycompany\projetopi\frmMenu$3.class
@@ -59,6 +60,7 @@ com\mycompany\projetopi\frmConsultarCliente$9.class
 com\mycompany\projetopi\model\CadastroCliente.class
 com\mycompany\projetopi\model\Estoque.class
 com\mycompany\projetopi\frmVendas$9.class
+br\com\infox\DAO\VendasDAO.class
 com\mycompany\projetopi\frmMenu$1.class
 com\mycompany\projetopi\TelaConsultaEstoque$4.class
 com\mycompany\projetopi\frmVendas$2.class
