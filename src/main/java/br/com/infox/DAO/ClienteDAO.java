@@ -65,6 +65,7 @@ public static boolean consultar(Cliente obj){
             Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
              PreparedStatement comandoSQL = conexao.prepareStatement("select * from cliente where cpf=?");
              comandoSQL.setString(1, obj.getCpf());
+
              rs = comandoSQL.executeQuery();
              if(rs != null){
                  comandoSQL.setString(1, obj.getCpf());
