@@ -14,18 +14,18 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Leonardo Freitas
  */
-public class TelaConsultaEstoque extends javax.swing.JFrame {
+public class frmConsultaEstoque extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaConsultaEstoque
      */
-    public TelaConsultaEstoque(Estoque obj) {
+    public frmConsultaEstoque(Estoque obj) {
         initComponents();
         
         
     }
 
-    TelaConsultaEstoque() {
+    frmConsultaEstoque() {
         initComponents();
         
     }

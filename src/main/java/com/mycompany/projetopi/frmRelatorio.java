@@ -59,7 +59,7 @@ public class frmRelatorio extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Nome", "Produto", "Quantidade", "Data", "Valor"
+                "Nome Cliente", "Produto", "Quantidade", "Data", "Valor"
             }
         ));
         jScrollPane1.setViewportView(tblRelatorioVendas);

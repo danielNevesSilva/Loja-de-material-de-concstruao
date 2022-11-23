@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  * @author danie
  */
 public class frmVendas extends javax.swing.JFrame {
-
+    
     public Cliente objCliente = null;
 
     /**
@@ -30,12 +30,12 @@ public class frmVendas extends javax.swing.JFrame {
     public frmVendas() {
         initComponents();
     }
-
+    
     public frmVendas(Cliente obj) {
         initComponents();
         objCliente = obj;
         txtCPF.setText(String.valueOf(obj.getCpf()));
-
+        
     }
 
     /**
@@ -337,6 +337,9 @@ public class frmVendas extends javax.swing.JFrame {
 
     private void btnFinalizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarVendaActionPerformed
         // TODO add your handling code here:
+
+        frmConfirmaVenda frmVenda = new frmConfirmaVenda();
+        frmVenda.setVisible(true);
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
     private void cbVendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbVendedoresActionPerformed
@@ -361,18 +364,18 @@ public class frmVendas extends javax.swing.JFrame {
     private void btnConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClienteActionPerformed
         // TODO add your handling code here:
         ArrayList<Cliente> lista = VendasDAO.consultarCliente(txtCPF.getText());
-
+        
         DefaultTableModel modelo = (DefaultTableModel) tblDadosCliente.getModel();
-
+        
         modelo.setRowCount(0);
-
+        
         for (Cliente item : lista) {
             modelo.addRow(new String[]{
                 String.valueOf(item.getCpf()),
                 String.valueOf(item.getNome()),
                 String.valueOf(item.getTelefone())
             });
-
+            
         }
 
     }//GEN-LAST:event_btnConsultaClienteActionPerformed
@@ -426,18 +429,18 @@ public class frmVendas extends javax.swing.JFrame {
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         // TODO add your handling code here:
         ArrayList<Estoque> lista = VendasProdutosDAO.consultarProduto(txtProduto.getText());
-
+        
         DefaultTableModel modelo = (DefaultTableModel) tblListaProdutos.getModel();
-
+        
         modelo.setRowCount(0);
-
+        
         for (Estoque item : lista) {
             modelo.addRow(new String[]{
                 String.valueOf(item.getProduto()),
                 String.valueOf(item.getQuantidade()),
                 String.valueOf(item.getpVenda())
             });
-
+            
         }
 
     }//GEN-LAST:event_btnAdicionarActionPerformed
