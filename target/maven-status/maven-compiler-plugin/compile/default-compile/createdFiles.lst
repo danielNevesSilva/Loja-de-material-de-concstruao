@@ -43,9 +43,11 @@ br\com\infox\DAO\ClienteDAO.class
 com\mycompany\projetopi\frmConsultarCliente$6.class
 com\mycompany\projetopi\frmEstoque$2.class
 com\mycompany\projetopi\frmEstoque$5.class
+com\mycompany\projetopi\frmVendas$14.class
 com\mycompany\projetopi\frmVendas$1.class
 com\mycompany\projetopi\Main.class
 com\mycompany\projetopi\frmMenu$7.class
+br\com\infox\DAO\VendasProdutosDAO.class
 br\com\infox\DAO\EstoqueDAO.class
 com\mycompany\projetopi\frmCadastroCliente$8.class
 com\mycompany\projetopi\frmMenu$3.class
