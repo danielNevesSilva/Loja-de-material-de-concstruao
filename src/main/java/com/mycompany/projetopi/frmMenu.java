@@ -66,7 +66,7 @@ public class frmMenu extends javax.swing.JFrame {
         });
 
         btnConsultarCliente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnConsultarCliente.setText("Consultar cliente");
+        btnConsultarCliente.setText("Cliente");
         btnConsultarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultarClienteActionPerformed(evt);
@@ -74,7 +74,7 @@ public class frmMenu extends javax.swing.JFrame {
         });
 
         btnEstoque.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnEstoque.setText("Consultar Produto");
+        btnEstoque.setText("Produto");
         btnEstoque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEstoqueActionPerformed(evt);
