@@ -7,21 +7,23 @@ public class Estoque {
     private int idprod;
     private String produto;
     private int quantidade;
-    private double pCompra;
-    private double pVenda;
+    private double preco;
 
-    public Estoque() {
+    public Estoque(String produto1, int quantidade1, double preco1) {
     }
-    
-    
 
-    public Estoque(String produto, int idprod, double pCompra, double pVenda) {
+    public Estoque(int idprod, String produto, int quantidade, double preco) {
         this.idprod = idprod;
         this.produto = produto;
         this.quantidade = quantidade;
-        this.pCompra = pCompra;
-        this.pVenda = pVenda;
+        this.preco = preco;
     }
+
+    public Estoque() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+  
 
     public int getIdprod() {
         return idprod;
@@ -47,22 +49,13 @@ public class Estoque {
         this.quantidade = quantidade;
     }
 
-    public double getpCompra() {
-        return pCompra;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setpCompra(double pCompra) {
-        this.pCompra = pCompra;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
-    public double getpVenda() {
-        return pVenda;
-    }
-
-    public void setpVenda(double pVenda) {
-        this.pVenda = pVenda;
-    }
-    
    
-    
 }

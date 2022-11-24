@@ -4,16 +4,13 @@
  */
 package com.mycompany.projetopi;
 
-import br.com.infox.DAO.EstoqueDAO;
 import br.com.infox.DAO.VendasDAO;
 import br.com.infox.DAO.VendasProdutosDAO;
 import com.mycompany.projetopi.frmCadastroCliente;
 import com.mycompany.projetopi.model.Cliente;
 import com.mycompany.projetopi.model.Estoque;
-import java.awt.event.KeyEvent;
 import java.awt.Color;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -357,7 +354,7 @@ public class frmVendas extends javax.swing.JFrame {
             modelo.addRow(new String[]{
                 String.valueOf(item.getProduto()),
                 String.valueOf(item.getQuantidade()),
-                String.valueOf(item.getpVenda())
+                String.valueOf(item.getPreco())
             });
             
         }

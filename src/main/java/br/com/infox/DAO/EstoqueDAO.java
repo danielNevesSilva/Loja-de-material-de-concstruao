@@ -27,8 +27,7 @@ public class EstoqueDAO {
 
             comandoSQL.setString(1, obj.getProduto());
             comandoSQL.setInt(2, obj.getQuantidade());
-            comandoSQL.setDouble(3, obj.getpCompra());
-            comandoSQL.setDouble(4, obj.getpVenda());
+            comandoSQL.setDouble(3, obj.getPreco());
 
             int linhasAfetadas = comandoSQL.executeUpdate();
             if (linhasAfetadas > 0) {
@@ -61,8 +60,7 @@ public class EstoqueDAO {
                     item.setIdprod(rs.getInt("idprod"));
                     item.setProduto(rs.getString("produto"));
                     item.setQuantidade(rs.getInt("quantidade"));
-                    item.setpCompra(rs.getDouble("pcompra"));
-                    item.setpVenda(rs.getDouble("pvenda"));
+                    item.setPreco(rs.getDouble("preco"));
 
                     listaRetorno.add(item);
                 }
@@ -111,12 +109,11 @@ public class EstoqueDAO {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
 
-            PreparedStatement comandoSQL = conexao.prepareStatement("update estoque set produto=?,quantidade=?,pcompra=?,pvenda=? where idprod=?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("update estoque set produto=?,quantidade=?,preco=? where idprod=?");
             comandoSQL.setString(1, obj.getProduto());
             comandoSQL.setInt(2, obj.getQuantidade());
-            comandoSQL.setDouble(3, obj.getpCompra());
-            comandoSQL.setDouble(4, obj.getpVenda());
-            comandoSQL.setInt(5, obj.getIdprod());
+            comandoSQL.setDouble(3, obj.getPreco());
+            comandoSQL.setInt(4, obj.getIdprod());
 
             int linhasAfetadas = comandoSQL.executeUpdate();
 

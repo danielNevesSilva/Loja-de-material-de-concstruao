@@ -28,7 +28,7 @@ public class VendasProdutosDAO {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
-            PreparedStatement comandoSQL = conexao.prepareStatement("select idprod,produto,quantidade from estoque where produto like ?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("select idprod,produto,quantidade, preco from estoque where produto like ?");
             comandoSQL.setString(1, nomeProduto);
             rs = comandoSQL.executeQuery();
             if (rs != null) {
@@ -37,6 +37,7 @@ public class VendasProdutosDAO {
                     item.setIdprod(rs.getInt("idprod"));
                     item.setProduto(rs.getString("produto"));
                     item.setQuantidade(rs.getInt("quantidade"));
+                    item.setPreco(rs.getDouble("preco"));
 
                     listaRetorno.add(item);
                 }
