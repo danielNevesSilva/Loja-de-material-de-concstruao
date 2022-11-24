@@ -1,51 +1,25 @@
-<<<<<<< HEAD
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmRelatorio.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\VendasProdutosDAO.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\Main.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmEstoque.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\ConsultarCliente.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConfirmaVenda.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConsultarCliente.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmMenu.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\EstoqueDAO.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Cliente.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Estoque.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Financeiro.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Relatorio.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmCadastroCliente.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmVendas.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Vendas.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\CadastroCliente.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\ConsultaProdutos.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\Conexao.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConsultaEstoque.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\VendasDAO.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\ClienteDAO.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Compras.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\Connection\ConnectionFactory.java
-=======
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConsultaEstoque.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Relatorio.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\Connection\ConnectionFactory.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmEstoque.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmVendas.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Financeiro.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\ClienteDAO.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Vendas.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\Conexao.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Estoque.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\CadastroCliente.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConfirmaVenda.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmRelatorio.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmCadastroCliente.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\VendasProdutosDAO.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConsultarCliente.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmMenu.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\Main.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\ConsultarCliente.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Compras.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Cliente.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\EstoqueDAO.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\ConsultaProdutos.java
-C:\Users\Leonardo Freitas\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\VendasDAO.java
->>>>>>> a0f4c223d95a979e5e5e9bae2d872e4e7475d6e8
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmVendas.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Financeiro.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\EstoqueDAO.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\Conexao.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConsultaEstoque.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmEstoque.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\VendasDAO.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmAlterarCliente.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\Connection\ConnectionFactory.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmCadastroCliente.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmCliente.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\VendasProdutosDAO.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Vendas.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmMenu.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Compras.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\ConsultarCliente.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\Main.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\ClienteDAO.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\ConsultaProdutos.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\CadastroCliente.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Cliente.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Relatorio.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConfirmaVenda.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmRelatorio.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Estoque.java

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.mycompany.projetopi;
 
 import br.com.infox.DAO.VendasDAO;
@@ -14,10 +11,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author danie
- */
+
 public class frmVendas extends javax.swing.JFrame {
 
     public Cliente objCliente = null;
@@ -305,6 +299,7 @@ public class frmVendas extends javax.swing.JFrame {
 
     private void btnConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClienteActionPerformed
         // TODO add your handling code here:
+        /*
         ArrayList<Cliente> lista = VendasDAO.consultarCliente(txtCPF.getText());
 
         DefaultTableModel modelo = (DefaultTableModel) tblDadosCliente.getModel();
@@ -319,7 +314,7 @@ public class frmVendas extends javax.swing.JFrame {
             });
 
         }
-
+        */
     }//GEN-LAST:event_btnConsultaClienteActionPerformed
 
     private void txtProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoActionPerformed
