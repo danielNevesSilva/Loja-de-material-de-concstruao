@@ -1,4 +1,3 @@
-
 package br.com.infox.DAO;
 
 import java.util.Date;
@@ -15,15 +14,15 @@ import com.mycompany.projetopi.model.Cliente;
 import com.mycompany.projetopi.frmCadastroCliente;
 import com.mycompany.projetopi.model.Estoque;
 import java.sql.ResultSet;
-
+import java.util.ArrayList;
 
 public class ClienteDAO {
-    
+
     static String URL = "jdbc:mysql://localhost:3306/projetoevolucao";
     static String LOGIN = "root";
     static String SENHA = "";
-    
- public static boolean salvar(Cliente obj) {
+
+    public static boolean salvar(Cliente obj) {
         boolean retorno = false;
 
         try {
@@ -39,7 +38,6 @@ public class ClienteDAO {
             comandoSQL.setString(6, obj.getSexo());
             comandoSQL.setString(7, obj.getEstadocivil());
             comandoSQL.setString(8, obj.getCidade());
-           
 
             int linhasAfetadas = comandoSQL.executeUpdate();
             if (linhasAfetadas > 0) {
@@ -56,47 +54,49 @@ public class ClienteDAO {
         return retorno;
     }
 
-public static boolean consultar(Cliente obj){
-   ResultSet rs = null;
-   boolean retorno = false;
-    
-    try {
-         Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
-             PreparedStatement comandoSQL = conexao.prepareStatement("select * from cliente where cpf=?");
-             comandoSQL.setString(1, obj.getCpf());
+    public static ArrayList<Cliente> listaCliente(String cpf) {
+        ArrayList<Cliente> listaRetorno = new ArrayList<>();
+        ResultSet rs = null;
 
-             rs = comandoSQL.executeQuery();
-             if(rs != null){
-                 comandoSQL.setString(1, obj.getCpf());
-                 comandoSQL.setString(2, obj.getNome());
-                 comandoSQL.setString(3, obj.getTelefone());
-                 comandoSQL.setString(4, obj.getEmail());
-                 comandoSQL.setString(5, obj.getDataNascimento());
-                 comandoSQL.setString(6, obj.getSexo());
-                 comandoSQL.setString(7, obj.getEstadocivil());
-                 comandoSQL.setString(8, obj.getCidade());
-                 
-               /*  Cliente item = new Cliente();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
+            PreparedStatement comandoSQL = conexao.prepareStatement("select * from cliente where cpf like ?");
+            comandoSQL.setString(1, cpf);
+            rs = comandoSQL.executeQuery();
+            if (rs != null) {
+                while (rs.next()) {
+                    Cliente item = new Cliente();
+                    item.setId(rs.getString("idcliente"));
                     item.setCpf(rs.getString("cpf"));
                     item.setNome(rs.getString("nome"));
                     item.setTelefone(rs.getString("telefone"));
-                    item.setEmail(rs.getString("email"));
                     item.setDataNascimento(rs.getString("datanascimento"));
                     item.setSexo(rs.getString("sexo"));
+                    item.setEmail(rs.getString("email"));
                     item.setEstadocivil(rs.getString("estadocivil"));
-                    item.setCidade(rs.getString("cidade"));*/
-                    
+                    item.setCidade(rs.getString("cidade"));
 
+                    listaRetorno.add(item);
+                }
 
-             
-            } else {
-                 JOptionPane.showMessageDialog(null, "Erro ao consultar");
             }
-             
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, e);
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ex) {
+
+                }
+
+            }
+        }
+
+        return listaRetorno;
+
     }
-    return retorno;
-}
 }

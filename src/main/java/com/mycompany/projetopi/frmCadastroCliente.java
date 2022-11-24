@@ -457,7 +457,7 @@ public class frmCadastroCliente extends javax.swing.JFrame {
         String cidade = txtCidade.getText();
         
 
-      Cliente objCliente = new Cliente(cpf, nome, telefone, email, dataParaMYSQL, sexo, estadocivil, cidade);
+      Cliente objCliente = new Cliente();
          boolean retorno = ClienteDAO.salvar(objCliente);
         if (retorno) {
         JOptionPane.showMessageDialog(null, "Produtos Cadastrados com sucesso!");

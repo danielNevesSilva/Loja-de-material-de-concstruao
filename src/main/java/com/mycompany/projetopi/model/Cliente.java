@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Cliente {
 
+    private String id;
     private String cpf;
     private String nome;
     private String telefone;
@@ -19,7 +20,7 @@ public class Cliente {
 
     
 
-    public Cliente(String cpf, String nome, String telefone, String email, String dataNascimento, String sexo, String estadocivil, String cidade) {
+    public Cliente(String cpf, String nome, String telefone, String email, String dataNascimento, String sexo, String estadocivil, String cidade, String id) {
         this.cpf = cpf;
         this.nome = nome;
         this.telefone = telefone;
@@ -94,8 +95,12 @@ public class Cliente {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-
-    public Object getpVenda() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+ public String getId() {
+        return id;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+ 
 }

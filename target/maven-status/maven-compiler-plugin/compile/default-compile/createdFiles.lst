@@ -52,7 +52,6 @@ com\mycompany\projetopi\frmCadastroCliente$8.class
 com\mycompany\projetopi\frmMenu$3.class
 com\mycompany\projetopi\frmCadastroCliente.class
 com\mycompany\projetopi\frmVendas$5.class
-com\mycompany\projetopi\frmEstoque$8.class
 Connection\ConnectionFactory.class
 com\mycompany\projetopi\frmConsultaEstoque$1.class
 com\mycompany\projetopi\frmVendas$8.class
@@ -73,7 +72,11 @@ com\mycompany\projetopi\frmCadastroCliente$13.class
 com\mycompany\projetopi\frmConsultarCliente$3.class
 com\mycompany\projetopi\frmCadastroCliente$1.class
 com\mycompany\projetopi\frmConsultaEstoque.class
+<<<<<<< HEAD
 com\mycompany\projetopi\frmVendas$11.class
+=======
+>>>>>>> a0f4c223d95a979e5e5e9bae2d872e4e7475d6e8
 com\mycompany\projetopi\frmCadastroCliente$4.class
 com\mycompany\projetopi\frmMenu.class
 com\mycompany\projetopi\frmMenu$4.class
+com\mycompany\projetopi\frmConsultaEstoque$5.class

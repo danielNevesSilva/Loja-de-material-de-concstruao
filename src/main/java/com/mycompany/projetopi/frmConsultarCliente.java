@@ -5,13 +5,17 @@
 package com.mycompany.projetopi;
 
 import br.com.infox.DAO.ClienteDAO;
+import br.com.infox.DAO.EstoqueDAO;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import com.mycompany.projetopi.model.Cliente;
+import com.mycompany.projetopi.model.Estoque;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,109 +23,12 @@ import java.text.SimpleDateFormat;
  */
 public class frmConsultarCliente extends javax.swing.JFrame {
 
-    Connection conexao = null;
-    PreparedStatement pst = null;
-    ResultSet st = null;
-
     /**
      * Creates new form NewJFrame
      */
     public frmConsultarCliente() {
         initComponents();
         lblid.setVisible(false);
-                
-    }
-
-    public void consultar() {
-        String sql = "select * from cliente where cpf=?";
-        try {
-            pst = conexao.prepareStatement(sql);
-            pst.setString(1, txtCPF.getText());
-            st = pst.executeQuery();
-            if (st.next()) {
-                lblid.setText(st.getString(1));
-                txtCPF.setText(st.getString(2));
-                txtNomeCliente.setText(st.getString(3));
-                txtTelefone.setText(st.getString(4));
-                txtEmail.setText(st.getString(5));
-                //txtDataNascimento.setText(st.getDate(6).toString().replaceAll("-", ""));
-                SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-                txtDataNascimento.setText(formatador.format(st.getDate(6)));
-                txtSexo.setText(st.getString(7));
-                txtEstadoCivil.setText(st.getString(8));
-                txtEndereco.setText(st.getString(9));
-            } else {
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-
-    private void atualizar() {
-        String sql = "update cliente set cpf=?,nome=?,telefone=?,email=?,datanascimento=?,sexo=?,estadocivil=?,endereco=? where idcliente=?";
-        try {
-            pst = conexao.prepareStatement(sql);
-            pst.setString(1, txtCPF.getText());
-            pst.setString(2, txtNomeCliente.getText());
-            pst.setString(3, txtTelefone.getText());
-            pst.setString(4, txtEmail.getText());
-
-            String dia = txtDataNascimento.getText().substring(0, 2);
-            String mes = txtDataNascimento.getText().substring(3, 5);
-            String ano = txtDataNascimento.getText().substring(6);
-            String dataParaMYSQL = ano + "-" + mes + "-" + dia;
-            pst.setString(5, dataParaMYSQL);
-            /* if(txtSexo.getText() = "M"){
-                pst.setString(6,"M");
-            }else if(rbFeminino.isSelected()){
-                 pst.setString(6,"F");
-            }*/
-            pst.setString(6, txtSexo.getText());
-            // pst.setString(6,rbMasculino.getText());
-            //pst.setString(6,rbFeminino.getText());
-            pst.setString(7, txtEstadoCivil.getText());
-            pst.setString(8, txtEndereco.getText());
-            pst.setString(9, txtId.getText());
-
-            if ((txtId.getText().isEmpty() || txtCPF.getText().isEmpty() || txtNomeCliente.getText().isEmpty() || txtTelefone.getText().isEmpty() || txtEmail.getText().isEmpty() || dataParaMYSQL.isEmpty() || txtSexo.getText().isEmpty() || txtEstadoCivil.getText().isEmpty() || txtEndereco.getText().isEmpty())) {
-                JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
-            } else {
-                int adicionado = pst.executeUpdate();
-
-                if (adicionado > 0) {
-                    JOptionPane.showMessageDialog(null, "Dados do usuário alterado com sucesso");
-                    pst.setString(4, dataParaMYSQL);
-                    pst.setString(5, txtSexo.getText());
-                    pst.setString(6, txtEstadoCivil.getText());
-                    pst.setString(7, txtEndereco.getText());
-                    pst.setString(8, txtId.getText());
-
-                    if ((txtCPF.getText().isEmpty()) || (txtNomeCliente.getText().isEmpty()) || (txtTelefone.getText().isEmpty()) || (txtEmail.getText().isEmpty()) || (dataParaMYSQL.isEmpty()) || (txtSexo.getText().isEmpty()) || (txtEstadoCivil.getText().isEmpty()) || (txtEndereco.getText().isEmpty())) {
-                        JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");
-                    } else {
-
-                    }
-                }
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-
-    private void remover() {
-        //a estrtura abaixo confirma a remoção do usuario
-        int confirmar = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover este usuário", "Atenção", JOptionPane.YES_NO_OPTION);
-        if (confirmar == JOptionPane.YES_OPTION) {
-            String sql = "delete from cliente where cpf=?";
-            try {
-                pst = conexao.prepareStatement(sql);
-                pst.setString(1, txtCPF.getText());
-                pst.executeUpdate();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
 
     }
 
@@ -161,6 +68,8 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         txtIdcliente = new javax.swing.JTextField();
         lblid = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +88,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("CPF");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 194, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 194, -1));
 
         btnConsultar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnConsultar.setText("Consultar ");
@@ -188,7 +97,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, -1, -1));
+        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 130, -1));
 
         btnCadastrar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnCadastrar.setText("Cadastrar");
@@ -197,7 +106,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 140, -1));
 
         btnAlterar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnAlterar.setText("Alterar");
@@ -206,7 +115,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 btnAlterarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 104, -1));
+        jPanel1.add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 140, -1));
 
         jButton5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton5.setText("Apagar");
@@ -215,15 +124,15 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 96, -1));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 270, 130, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Nome");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Data de nascimento");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         try {
             txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -238,7 +147,7 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 txtCPFFocusLost(evt);
             }
         });
-        jPanel1.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 171, -1));
+        jPanel1.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 171, -1));
 
         txtNomeCliente.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -248,51 +157,51 @@ public class frmConsultarCliente extends javax.swing.JFrame {
                 txtNomeClienteFocusLost(evt);
             }
         });
-        jPanel1.add(txtNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 200, -1));
+        jPanel1.add(txtNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 230, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Endereço");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Telefone");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Email");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Sexo");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("Estado Civil");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
-        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 170, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
+        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 170, -1));
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 280, -1));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 290, -1));
 
         try {
             txtDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jPanel1.add(txtDataNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 150, -1));
-        jPanel1.add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 170, -1));
+        jPanel1.add(txtDataNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 150, -1));
+        jPanel1.add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 170, -1));
 
         txtEstadoCivil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEstadoCivilActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEstadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 190, -1));
-        jPanel1.add(txtEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 260, -1));
+        jPanel1.add(txtEstadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 190, -1));
+        jPanel1.add(txtEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 300, -1));
 
         jTextField1.setText("jTextField1");
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 40, 0, -1));
@@ -301,20 +210,35 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         jPanel1.add(txtIdcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(621, 30, 0, -1));
         jPanel1.add(lblid, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 20, -1));
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "CPF", "Nome", "Telefone", "D/Nascimento", "Sexo", "EstadoCivil", "Email", "Endereco"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 700, 220));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -323,46 +247,26 @@ public class frmConsultarCliente extends javax.swing.JFrame {
 
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        String id = lblid.getText();
-        String cpf = txtCPF.getText();
-        String nome = txtNomeCliente.getText();
-        String telefone = txtTelefone.getText();
-        String email = txtEmail.getText();
-        String datanascimento = txtDataNascimento.getText().toString().replaceAll("-", " ");
-        String sexo = txtSexo.getText();
-        String estadoCivil = txtEstadoCivil.getText();
-        String endereco = txtEndereco.getText();
-        
-         Cliente objCliente = new Cliente(cpf, nome, telefone, email, datanascimento, sexo, estadoCivil, endereco);
-     boolean retorno = ClienteDAO.consultar(objCliente);
-        if (retorno) {
-        JOptionPane.showMessageDialog(null, "Produtos Cadastrados com sucesso!");
-        } else {
-        JOptionPane.showMessageDialog(null, "Falha na Consulta!");
+        ArrayList<Cliente> lista = ClienteDAO.listaCliente(txtCPF.getText());
+
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+
+        modelo.setRowCount(0);
+
+        for (Cliente item : lista) {
+            modelo.addRow(new String[]{
+                String.valueOf(item.getId()),
+                String.valueOf(item.getCpf()),
+                String.valueOf(item.getNome()),
+                String.valueOf(item.getTelefone()),
+                String.valueOf(item.getDataNascimento()),
+                String.valueOf(item.getSexo()),
+                String.valueOf(item.getEmail()),
+                String.valueOf(item.getEstadocivil()),
+                String.valueOf(item.getCidade())});
+
         }
-        
-        
-        
-        
-        /*String sql = "select * from cliente where cpf=?";
-        try {
-            pst = conexao.prepareStatement(sql);
-            pst.setString(1, txtCPF.getText());
-            st = pst.executeQuery();
-            if (st.next()) {
-                lblid.setText(st.getString(1));
-                txtCPF.setText(st.getString(2));
-                txtNomeCliente.setText(st.getString(3));
-                txtTelefone.setText(st.getString(4));
-                txtEmail.setText(st.getString(5));
-                //txtDataNascimento.setText(st.getDate(6).toString().replaceAll("-", ""));
-                SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-                txtDataNascimento.setText(formatador.format(st.getDate(6)));
-                txtSexo.setText(st.getString(7));
-                txtEstadoCivil.setText(st.getString(8));
-                txtEndereco.setText(st.getString(9));
-            } else {
-            }*/        
+
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -376,12 +280,12 @@ public class frmConsultarCliente extends javax.swing.JFrame {
         txtEstadoCivil.setText("");
         txtEmail.setText("");
         txtEndereco.setText("");
-        remover();
+       
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        atualizar();
+        
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
@@ -442,6 +346,8 @@ public class frmConsultarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblid;
     private javax.swing.JFormattedTextField txtCPF;
