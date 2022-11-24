@@ -59,4 +59,22 @@ public class VendasProdutosDAO {
 
         return listaRetorno;
     }
+
+    public static boolean Excluir(String codigo) {
+        boolean retorno = false;
+        try {
+            Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
+            PreparedStatement comandoSQL = conexao.prepareStatement("delete from estoque where idprod =?");
+            comandoSQL.setString(1, codigo);
+
+            int linhasAfetadas = comandoSQL.executeUpdate();
+
+            if (linhasAfetadas > 0) {
+                retorno = true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return retorno;
+    }
 }

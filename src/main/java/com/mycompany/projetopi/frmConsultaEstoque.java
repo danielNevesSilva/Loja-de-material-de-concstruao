@@ -257,7 +257,7 @@ public class frmConsultaEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int linhaSelecionada = jTable1.getSelectedRow();
+            int linhaSelecionada = jTable1.getSelectedRow();
         if(linhaSelecionada>=0){
             int codigo = Integer.parseInt(jTable1.getValueAt(linhaSelecionada, 0).toString());
            boolean retorno = EstoqueDAO.Excluir(codigo);

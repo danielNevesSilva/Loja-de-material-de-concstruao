@@ -50,6 +50,7 @@ public class EstoqueDAO {
         ResultSet rs = null;
 
         try {
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
             PreparedStatement comandoSQL = conexao.prepareStatement("select * from estoque where produto like ?");
@@ -90,7 +91,7 @@ public class EstoqueDAO {
         boolean retorno = false;
         try {
             Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
-            PreparedStatement comandoSQL = conexao.prepareStatement("delete from estoque where idprod=?");
+            PreparedStatement comandoSQL = conexao.prepareStatement("delete from estoque where idprod =?");
             comandoSQL.setInt(1, codigo);
 
             int linhasAfetadas = comandoSQL.executeUpdate();

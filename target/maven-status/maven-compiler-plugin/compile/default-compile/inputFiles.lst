@@ -3,6 +3,7 @@ C:\Users\danie\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\Ven
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\Main.java
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmEstoque.java
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\ConsultarCliente.java
+C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConfirmaVenda.java
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConsultarCliente.java
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmMenu.java
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\EstoqueDAO.java
@@ -15,8 +16,8 @@ C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projet
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Vendas.java
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\CadastroCliente.java
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\ConsultaProdutos.java
-C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\TelaConsultaEstoque.java
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\Conexao.java
+C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConsultaEstoque.java
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\VendasDAO.java
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\ClienteDAO.java
 C:\Users\danie\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Compras.java

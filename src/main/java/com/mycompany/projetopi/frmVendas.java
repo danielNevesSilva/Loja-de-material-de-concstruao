@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  * @author danie
  */
 public class frmVendas extends javax.swing.JFrame {
-    
+
     public Cliente objCliente = null;
 
     /**
@@ -30,12 +30,12 @@ public class frmVendas extends javax.swing.JFrame {
     public frmVendas() {
         initComponents();
     }
-    
+
     public frmVendas(Cliente obj) {
         initComponents();
         objCliente = obj;
         txtCPF.setText(String.valueOf(obj.getCpf()));
-        
+
     }
 
     /**
@@ -163,6 +163,11 @@ public class frmVendas extends javax.swing.JFrame {
         jPanel1.add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         btnRemover.setText("Remover");
+        btnRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnRemover, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 90, 40));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -189,7 +194,7 @@ public class frmVendas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Produto", "Quantidade", "Preço"
+                "ID produto", "Produto", "Quantidade", "Preço"
             }
         ));
         jScrollPane3.setViewportView(tblListaProdutos);
@@ -297,24 +302,24 @@ public class frmVendas extends javax.swing.JFrame {
 
     private void txtProdutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProdutoKeyTyped
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtProdutoKeyTyped
 
     private void btnConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClienteActionPerformed
         // TODO add your handling code here:
         ArrayList<Cliente> lista = VendasDAO.consultarCliente(txtCPF.getText());
-        
+
         DefaultTableModel modelo = (DefaultTableModel) tblDadosCliente.getModel();
-        
+
         modelo.setRowCount(0);
-        
+
         for (Cliente item : lista) {
             modelo.addRow(new String[]{
                 String.valueOf(item.getCpf()),
                 String.valueOf(item.getNome()),
                 String.valueOf(item.getTelefone())
             });
-            
+
         }
 
     }//GEN-LAST:event_btnConsultaClienteActionPerformed
@@ -348,21 +353,46 @@ public class frmVendas extends javax.swing.JFrame {
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         // TODO add your handling code here:
         ArrayList<Estoque> lista = VendasProdutosDAO.consultarProduto(txtProduto.getText());
-        
+
         DefaultTableModel modelo = (DefaultTableModel) tblListaProdutos.getModel();
-        
+
         modelo.setRowCount(0);
-        
+
         for (Estoque item : lista) {
             modelo.addRow(new String[]{
                 String.valueOf(item.getProduto()),
                 String.valueOf(item.getQuantidade()),
                 String.valueOf(item.getpVenda())
             });
-            
+
         }
 
     }//GEN-LAST:event_btnAdicionarActionPerformed
+
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
+        // TODO add your handling code here:
+
+        DefaultTableModel dtm = (DefaultTableModel) tblListaProdutos.getModel();
+        if (tblListaProdutos.getSelectedRow() >= 0) {
+            dtm.removeRow(tblListaProdutos.getSelectedRow());
+            tblListaProdutos.setModel(dtm);
+        } else {
+            JOptionPane.showMessageDialog(null, "Favor selecionar uma linha");
+        }
+
+        /*
+         int linhaSelecionada = tblListaProdutos.getSelectedRow();
+        if(linhaSelecionada>=0){
+            int codigo = Integer.parseInt(tblListaProdutos.getValueAt(linhaSelecionada, 0).toString());
+           boolean retorno = EstoqueDAO.Excluir(codigo);
+           if(retorno){
+               JOptionPane.showMessageDialog(null, "Produto excluído com sucesso");
+           }else{
+               JOptionPane.showMessageDialog(null, "Falha na exclusão");
+           }
+        }
+         */
+    }//GEN-LAST:event_btnRemoverActionPerformed
 
     /**
      * @param args the command line arguments
