@@ -193,4 +193,49 @@ public class ClienteDAO {
         return retorno;
 
     }
+    
+    public static ArrayList<Cliente> filtrar(String Cpf, String Nome) {
+        ArrayList<Cliente> listaRetorno = new ArrayList<>();
+        ResultSet rs = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
+            PreparedStatement comandoSQL = conexao.prepareStatement("select * from cliente where cpf like '"+Cpf+"' or nome like '"+Nome+"'");
+            rs = comandoSQL.executeQuery();
+            if (rs != null) {
+                while (rs.next()) {
+                    Cliente item = new Cliente();
+                    item.setId_cliente(rs.getInt("id_cliente"));
+                    item.setCpf(rs.getString("cpf"));
+                    item.setNome(rs.getString("nome"));
+                    item.setTelefone(rs.getString("telefone"));
+                    item.setEmail(rs.getString("email"));
+                    item.setDataNascimento(rs.getString("dataNascimento"));
+                    item.setSexo(rs.getString("sexo"));
+                    item.setEstadocivil(rs.getString("estadocivil"));
+                    item.setNomePais(rs.getString("nomePais"));
+                    item.setNomeCidade(rs.getString("nomeCidade"));
+                    item.setCep(rs.getString("cep"));
+                    item.setLogradouro(rs.getString("logradouro"));
+                    item.setNumero(rs.getString("numero"));
+                    item.setComplemento(rs.getString("numero"));
+                    listaRetorno.add(item);
+                }
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ex) {
+
+                }
+            }
+        }
+        return listaRetorno;
+    } 
 }
