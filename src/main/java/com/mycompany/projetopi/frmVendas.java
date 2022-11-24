@@ -55,33 +55,27 @@ public class frmVendas extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnConsultaCliente = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtProduto = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         btnFinalizarVenda = new javax.swing.JButton();
-        txtQuantidade = new javax.swing.JTextField();
         btnAdicionar = new javax.swing.JButton();
         btnRemover = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtDesconto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        cbVendedores = new javax.swing.JComboBox<>();
         btnCadastrar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblListaProdutos = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         txtCPF = new javax.swing.JFormattedTextField();
         jLabel11 = new javax.swing.JLabel();
         txtValorTotal = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblDadosCliente = new javax.swing.JTable();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel12 = new javax.swing.JLabel();
 
         jTextField1.setText("Vendedo");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -115,13 +109,9 @@ public class frmVendas extends javax.swing.JFrame {
         jPanel1.setToolTipText("");
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("Vendedor");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 30, -1, -1));
-
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Digite o CPF do cliente");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 119, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
         btnConsultaCliente.setText("Consultar ");
         btnConsultaCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +119,7 @@ public class frmVendas extends javax.swing.JFrame {
                 btnConsultaClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 182, 105, -1));
+        jPanel1.add(btnConsultaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 105, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Digite o Codigo do Produto");
@@ -164,59 +154,24 @@ public class frmVendas extends javax.swing.JFrame {
         });
         jPanel1.add(btnFinalizarVenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 109, -1));
 
-        txtQuantidade.setText("Quantidade");
-        txtQuantidade.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtQuantidadeFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtQuantidadeFocusLost(evt);
-            }
-        });
-        txtQuantidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtQuantidadeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, -1, -1));
-
         btnAdicionar.setText("Adicionar");
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdicionarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+        jPanel1.add(btnAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
 
         btnRemover.setText("Remover");
-        jPanel1.add(btnRemover, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 460, 90, 40));
+        jPanel1.add(btnRemover, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 90, 40));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setText("Lista de Produtos");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, -1, -1));
 
-        txtDesconto.setText("Desconto");
-        txtDesconto.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtDescontoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtDescontoFocusLost(evt);
-            }
-        });
-        jPanel1.add(txtDesconto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 78, -1));
-
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setText("Dados do Cliente");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
-
-        cbVendedores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vendedores", "Daniel", "Leonardo", "Matheus", "Marcos", "Mario" }));
-        cbVendedores.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbVendedoresActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cbVendedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 53, 213, 30));
 
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -224,7 +179,7 @@ public class frmVendas extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 182, 96, -1));
+        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 96, -1));
 
         jButton2.setText("Cancelar");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 100, -1));
@@ -240,18 +195,6 @@ public class frmVendas extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tblListaProdutos);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 320, 140));
-
-        jLabel6.setText("Nome");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
-
-        jLabel7.setText("Email");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, -1, -1));
-
-        jLabel8.setText("Contato");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, -1, -1));
-
-        jLabel9.setText("Nascimento");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
 
         try {
             txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -271,11 +214,11 @@ public class frmVendas extends javax.swing.JFrame {
                 txtCPFActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 220, 30));
+        jPanel1.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 220, 30));
 
         jLabel11.setText("Valor Total");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, -1, -1));
-        jPanel1.add(txtValorTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 440, 60, -1));
+        jPanel1.add(txtValorTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 440, 60, -1));
 
         tblDadosCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -288,6 +231,10 @@ public class frmVendas extends javax.swing.JFrame {
         jScrollPane4.setViewportView(tblDadosCliente);
 
         jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 310, 120));
+        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 70, -1));
+
+        jLabel12.setText("Quantidade");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
 
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -331,20 +278,12 @@ public class frmVendas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void txtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantidadeActionPerformed
-
-    }//GEN-LAST:event_txtQuantidadeActionPerformed
-
     private void btnFinalizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarVendaActionPerformed
         // TODO add your handling code here:
 
         frmConfirmaVenda frmVenda = new frmConfirmaVenda();
         frmVenda.setVisible(true);
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
-
-    private void cbVendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbVendedoresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbVendedoresActionPerformed
 
     private void txtProdutoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProdutoFocusGained
         txtProduto.setBackground(Color.yellow);
@@ -392,26 +331,6 @@ public class frmVendas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void txtQuantidadeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQuantidadeFocusGained
-        // TODO add your handling code here:
-        txtQuantidade.setBackground(Color.yellow);
-    }//GEN-LAST:event_txtQuantidadeFocusGained
-
-    private void txtQuantidadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtQuantidadeFocusLost
-        // TODO add your handling code here:
-        txtQuantidade.setBackground(Color.white);
-    }//GEN-LAST:event_txtQuantidadeFocusLost
-
-    private void txtDescontoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDescontoFocusGained
-        // TODO add your handling code here:
-        txtDesconto.setBackground(Color.yellow);
-    }//GEN-LAST:event_txtDescontoFocusGained
-
-    private void txtDescontoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDescontoFocusLost
-        // TODO add your handling code here:
-        txtDesconto.setBackground(Color.white);
-    }//GEN-LAST:event_txtDescontoFocusLost
-
     private void txtCPFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCPFFocusGained
         // TODO add your handling code here:
         txtCPF.setBackground(Color.yellow);
@@ -455,20 +374,15 @@ public class frmVendas extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultaCliente;
     private javax.swing.JButton btnFinalizarVenda;
     private javax.swing.JButton btnRemover;
-    private javax.swing.JComboBox<String> cbVendedores;
     private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
@@ -476,14 +390,13 @@ public class frmVendas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tblDadosCliente;
     private javax.swing.JTable tblListaProdutos;
     private javax.swing.JFormattedTextField txtCPF;
-    private javax.swing.JTextField txtDesconto;
     private javax.swing.JTextField txtProduto;
-    private javax.swing.JTextField txtQuantidade;
     private javax.swing.JTextField txtValorTotal;
     // End of variables declaration//GEN-END:variables
 }
