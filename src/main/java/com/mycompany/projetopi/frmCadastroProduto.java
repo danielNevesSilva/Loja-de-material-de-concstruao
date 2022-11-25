@@ -11,18 +11,30 @@ import com.mycompany.projetopi.model.Cliente;
 import com.mycompany.projetopi.model.Produto;
 import java.util.Date;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
 public class frmCadastroProduto extends javax.swing.JFrame {
 
     Connection conexao = null;
     PreparedStatement pst = null;
     ResultSet st = null;
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     public frmCadastroProduto() {
         initComponents();
         conexao = Conexao.conector();
         System.out.println(conexao);
     }
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -154,7 +166,12 @@ public class frmCadastroProduto extends javax.swing.JFrame {
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
        this.dispose();
+=======
+        txtDescricao.setText("");
+        txtPreco.setText("");
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     }//GEN-LAST:event_btnSairActionPerformed
 
 
@@ -192,17 +209,29 @@ public class frmCadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPrecoFocusLost
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         String descricao = txtDescricao.getText();
         double preco = Double.parseDouble(txtPreco.getText());
         String unidadeMed = (String) cmbUnMed.getSelectedItem();
 
         Produto objProduto = new Produto();
+<<<<<<< HEAD
 
         objProduto.setDescricao(descricao);
         objProduto.setUnidadeMedida(unidadeMed);
         objProduto.setPreco(preco);
 
+=======
+        
+        objProduto.setDescricao(descricao);
+        objProduto.setUnidadeMedida(unidadeMed);
+        objProduto.setPreco(preco);
+        
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         boolean retorno = ProdutoDAO.salvar(objProduto);
 
         if (retorno) {
@@ -211,7 +240,11 @@ public class frmCadastroProduto extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Falha na Gravação!");
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         /*
         if ((txtDescricao.getText().length() > 0)
                 && (txtCPF.getText().length() > 0)
@@ -224,15 +257,22 @@ public class frmCadastroProduto extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Confira os campos Obrigatorios!");
         }
+<<<<<<< HEAD
          */
+=======
+        */
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         txtDescricao.setText("");
         txtPreco.setText("");
         
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void txtDataNascimento1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimento1FocusGained

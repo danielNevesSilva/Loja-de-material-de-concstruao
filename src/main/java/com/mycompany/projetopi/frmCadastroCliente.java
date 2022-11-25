@@ -217,11 +217,14 @@ public class frmCadastroCliente extends javax.swing.JFrame {
                 txtCepActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         txtCep.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCepKeyTyped(evt);
             }
         });
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         jPanel1.add(txtCep, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 150, 30));
 
         cmbEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Solteiro(a)", "Casado(a)", "Divorciado(a)", "Viúvo(a)", " " }));
@@ -231,6 +234,7 @@ public class frmCadastroCliente extends javax.swing.JFrame {
         jLabel8.setText("Estado civil");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, 30));
 
+<<<<<<< HEAD
         txtLogradouro.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtLogradouroFocusGained(evt);
@@ -239,6 +243,8 @@ public class frmCadastroCliente extends javax.swing.JFrame {
                 txtLogradouroFocusLost(evt);
             }
         });
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         txtLogradouro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLogradouroActionPerformed(evt);
@@ -270,6 +276,7 @@ public class frmCadastroCliente extends javax.swing.JFrame {
         jLabel9.setText("Numero");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, 30));
 
+<<<<<<< HEAD
         txtNumero.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtNumeroFocusGained(evt);
@@ -278,6 +285,8 @@ public class frmCadastroCliente extends javax.swing.JFrame {
                 txtNumeroFocusLost(evt);
             }
         });
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         txtNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumeroActionPerformed(evt);
@@ -285,6 +294,7 @@ public class frmCadastroCliente extends javax.swing.JFrame {
         });
         jPanel1.add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 100, 30));
 
+<<<<<<< HEAD
         txtComplemento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtComplementoFocusGained(evt);
@@ -293,6 +303,8 @@ public class frmCadastroCliente extends javax.swing.JFrame {
                 txtComplementoFocusLost(evt);
             }
         });
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         txtComplemento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtComplementoActionPerformed(evt);
@@ -312,6 +324,7 @@ public class frmCadastroCliente extends javax.swing.JFrame {
         jLabel12.setText("Cidade");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, 30));
 
+<<<<<<< HEAD
         txtCidade.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtCidadeFocusGained(evt);
@@ -320,6 +333,8 @@ public class frmCadastroCliente extends javax.swing.JFrame {
                 txtCidadeFocusLost(evt);
             }
         });
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         txtCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCidadeActionPerformed(evt);
@@ -331,6 +346,7 @@ public class frmCadastroCliente extends javax.swing.JFrame {
         jLabel13.setText("País");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, -1, 30));
 
+<<<<<<< HEAD
         txtPais.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPaisFocusGained(evt);
@@ -339,6 +355,8 @@ public class frmCadastroCliente extends javax.swing.JFrame {
                 txtPaisFocusLost(evt);
             }
         });
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         txtPais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPaisActionPerformed(evt);
@@ -401,7 +419,15 @@ public class frmCadastroCliente extends javax.swing.JFrame {
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         this.dispose();
+=======
+        txtNome.setText("");
+        txtCPF.setText("");
+        txtTelefone.setText("");
+        txtEmail.setText("");
+        txtCep.setText("");
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
 
     }//GEN-LAST:event_btnSairActionPerformed
 
@@ -464,6 +490,7 @@ public class frmCadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTelefoneFocusLost
 
     private void txtCepFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCepFocusGained
+<<<<<<< HEAD
         // TODO add your handling code here:
         txtCep.setBackground(Color.yellow);
     }//GEN-LAST:event_txtCepFocusGained
@@ -598,21 +625,112 @@ public class frmCadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDataNascimento1ActionPerformed
 
     private void txtDataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimentoFocusGained
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         // TODO add your handling code here:
-        txtDataNascimento.setBackground(Color.yellow);
-    }//GEN-LAST:event_txtDataNascimentoFocusGained
+        txtCep.setBackground(Color.yellow);
+    }//GEN-LAST:event_txtCepFocusGained
 
-    private void txtDataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimentoFocusLost
+    private void txtCepFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCepFocusLost
         // TODO add your handling code here:
-        txtDataNascimento.setBackground(Color.white);
-    }//GEN-LAST:event_txtDataNascimentoFocusLost
+        txtCep.setBackground(Color.white);
+    }//GEN-LAST:event_txtCepFocusLost
 
+<<<<<<< HEAD
     private void txtDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascimentoActionPerformed
+=======
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        
+        String cpf = txtCPF.getText().replace("-", "").replace(".", "");
+        String nome = txtNome.getText();
+        String telefone = txtTelefone.getText().replace("-", "").replace("(", "").replace(")", "");
+        String email = txtEmail.getText();
+        System.out.println(txtDataNascimento.getText());
+        String dia = txtDataNascimento.getText().substring(0, 2);
+        System.out.println(dia);
+        String mes = txtDataNascimento.getText().substring(3, 5);
+        System.out.println(mes);
+        String ano = txtDataNascimento.getText().substring(6, 10);
+        System.out.println(ano);
+        String dataNascimento = ano + "-" + mes + "-" + dia;
+        dataNascimento.getBytes().toString();
+        String sexo = null;
+        if (rbMasculino.isSelected()) {
+            sexo = "M";
+        } else if (rbFeminino.isSelected()) {
+            sexo = "F";
+        }
+        String estadocivil = (String) cmbEstadoCivil.getSelectedItem();
+        String nomePais = txtPais.getText();
+        String nomeCidade = txtCidade.getText();
+        String cep = txtCep.getText().replaceAll("-", "");
+        String logradouro = txtLogradouro.getText();
+        String numero = txtNumero.getText();
+        String complemento = txtComplemento.getText();
+
+        Cliente objCliente = new Cliente();
+        
+        objCliente.setCpf(cpf);
+        objCliente.setNome(cep);
+        objCliente.setTelefone(telefone);
+        objCliente.setEmail(email);
+        objCliente.setDataNascimento(dataNascimento);
+        objCliente.setSexo(sexo);
+        objCliente.setEstadocivil(estadocivil);
+        objCliente.setNomePais(nomePais);
+        objCliente.setNomeCidade(nomeCidade);
+        objCliente.setCep(cep);
+        objCliente.setLogradouro(logradouro);
+        objCliente.setNumero(numero);
+        objCliente.setComplemento(complemento);        
+        
+        boolean retorno = ClienteDAO.salvar(objCliente);
+
+        if (retorno) {
+            JOptionPane.showMessageDialog(null, "Cliente Cadastrado com sucesso!");
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Falha na Gravação!");
+        }
+
+        if ((txtNome.getText().length() > 0)
+                && (txtCPF.getText().length() > 0)
+                && (txtCep.getText().length() > 0)
+                && (txtTelefone.getText().length() > 0)
+                && (rbMasculino.getText().length() > 0)
+                && (rbFeminino.getText().length() > 0)) {
+
+            // JOptionPane.showMessageDialog(null, "Dados Validados!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Confira os campos Obrigatorios!");
+        }
+
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDataNascimentoActionPerformed
+    }//GEN-LAST:event_txtTelefoneActionPerformed
+
+    private void txtCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCepActionPerformed
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCepActionPerformed
+
+    private void txtLogradouroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLogradouroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLogradouroActionPerformed
+
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroActionPerformed
+
+    private void txtComplementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComplementoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtComplementoActionPerformed
 
     private void txtCepKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCepKeyTyped
         // TODO add your handling code here:
+<<<<<<< HEAD
 
     }//GEN-LAST:event_txtCepKeyTyped
 
@@ -665,6 +783,41 @@ public class frmCadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtPais.setBackground(Color.white);
     }//GEN-LAST:event_txtPaisFocusLost
+=======
+    }//GEN-LAST:event_txtCidadeActionPerformed
+
+    private void txtPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPaisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPaisActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void txtDataNascimento1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimento1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascimento1FocusGained
+
+    private void txtDataNascimento1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimento1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascimento1FocusLost
+
+    private void txtDataNascimento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascimento1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascimento1ActionPerformed
+
+    private void txtDataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimentoFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascimentoFocusGained
+
+    private void txtDataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataNascimentoFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascimentoFocusLost
+
+    private void txtDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascimentoActionPerformed
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     /**
      * @param args the command line arguments
      */

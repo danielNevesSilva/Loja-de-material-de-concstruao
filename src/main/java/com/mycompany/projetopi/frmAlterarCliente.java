@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
 package com.mycompany.projetopi;
 
 import br.com.infox.DAO.ClienteDAO;
@@ -11,19 +15,32 @@ import com.mycompany.projetopi.model.Cliente;
 import com.mycompany.projetopi.model.Produto;
 import java.util.Date;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
 public class frmAlterarCliente extends javax.swing.JFrame {
 
     Connection conexao = null;
     PreparedStatement pst = null;
     ResultSet st = null;
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     public frmAlterarCliente(int id) throws SQLException, ClassNotFoundException {
         initComponents();
         conexao = Conexao.conector();
         System.out.println(conexao);
         lblId.setVisible(false);
+<<<<<<< HEAD
         lblId.setText("" + id);
 
+=======
+        lblId.setText(""+id);
+        
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         Cliente cliente = ClienteDAO.consultarSelecionado(id);
         txtCPF.setText(cliente.getCpf());
         txtNome.setText(cliente.getCpf());
@@ -31,7 +48,11 @@ public class frmAlterarCliente extends javax.swing.JFrame {
         txtEmail.setText(cliente.getCpf());
         //txtDataNascimento.setText(t);
         String sexo = cliente.getSexo();
+<<<<<<< HEAD
         if (sexo.equals("M")) {
+=======
+        if (sexo.equals("M") ) {
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
             rbMasculino.isSelected();
         } else if (sexo.equals("F")) {
             rbFeminino.isSelected();
@@ -44,7 +65,11 @@ public class frmAlterarCliente extends javax.swing.JFrame {
         txtNumero.setText(cliente.getNumero());
         txtComplemento.setText(cliente.getComplemento());
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -86,7 +111,10 @@ public class frmAlterarCliente extends javax.swing.JFrame {
         rbFeminino = new javax.swing.JRadioButton();
         txtDataNascimento = new javax.swing.JFormattedTextField();
         lblId = new javax.swing.JLabel();
+<<<<<<< HEAD
         lblLimpar = new javax.swing.JButton();
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
 
         try {
             txtDataNascimento1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -346,6 +374,7 @@ public class frmAlterarCliente extends javax.swing.JFrame {
         jPanel1.add(txtDataNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 120, 30));
 
         lblId.setText("jLabel14");
+<<<<<<< HEAD
         jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 0, -1));
 
         lblLimpar.setText("Limpar");
@@ -355,6 +384,9 @@ public class frmAlterarCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(lblLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, 150, 60));
+=======
+        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, -1, -1));
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 570));
         jPanel1.getAccessibleContext().setAccessibleName("");
@@ -437,7 +469,11 @@ public class frmAlterarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCepFocusLost
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         String cpf = txtCPF.getText().replace("-", "").replace(".", "");
         String nome = txtNome.getText();
         String telefone = txtTelefone.getText().replace("-", "").replace("(", "").replace(")", "");
@@ -466,7 +502,11 @@ public class frmAlterarCliente extends javax.swing.JFrame {
         String complemento = txtComplemento.getText();
 
         Cliente objCliente = new Cliente();
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         objCliente.setCpf(cpf);
         objCliente.setNome(cep);
         objCliente.setTelefone(telefone);
@@ -479,9 +519,15 @@ public class frmAlterarCliente extends javax.swing.JFrame {
         objCliente.setCep(cep);
         objCliente.setLogradouro(logradouro);
         objCliente.setNumero(numero);
+<<<<<<< HEAD
         objCliente.setComplemento(complemento);
         int id = Integer.parseInt(lblId.getText());
         boolean retorno = ClienteDAO.alterar(objCliente, id);
+=======
+        objCliente.setComplemento(complemento);        
+        int id = Integer.parseInt(lblId.getText());
+        boolean retorno = ClienteDAO.alterar(objCliente,id);
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
 
         if (retorno) {
             JOptionPane.showMessageDialog(null, "Cliente Cadastrado com sucesso!");
@@ -555,6 +601,7 @@ public class frmAlterarCliente extends javax.swing.JFrame {
     private void txtDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascimentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDataNascimentoActionPerformed
+<<<<<<< HEAD
 
     private void lblLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblLimparActionPerformed
         // TODO add your handling code here:
@@ -571,6 +618,8 @@ public class frmAlterarCliente extends javax.swing.JFrame {
         txtPais.setText("");
 
     }//GEN-LAST:event_lblLimparActionPerformed
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     /**
      * @param args the command line arguments
      */
@@ -598,7 +647,10 @@ public class frmAlterarCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblId;
+<<<<<<< HEAD
     private javax.swing.JButton lblLimpar;
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     private javax.swing.JRadioButton rbFeminino;
     private javax.swing.JRadioButton rbMasculino;
     private javax.swing.JFormattedTextField txtCPF;

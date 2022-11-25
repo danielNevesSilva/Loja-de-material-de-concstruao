@@ -41,11 +41,6 @@ public class frmMenu extends javax.swing.JFrame {
 
         btnVendas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnVendas.setText("Vendas");
-        btnVendas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVendasMouseClicked(evt);
-            }
-        });
         btnVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVendasActionPerformed(evt);
@@ -166,6 +161,7 @@ public class frmMenu extends javax.swing.JFrame {
         produto.setVisible(true);
     }//GEN-LAST:event_btnEstoqueActionPerformed
 
+<<<<<<< HEAD
     private void btnVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendasMouseClicked
         
         frmVendas frmMenu = new frmVendas();
@@ -173,6 +169,8 @@ public class frmMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnVendasMouseClicked
 
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnEstoque;

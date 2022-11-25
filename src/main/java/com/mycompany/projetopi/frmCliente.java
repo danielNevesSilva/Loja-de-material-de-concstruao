@@ -1,6 +1,10 @@
 package com.mycompany.projetopi;
 
 import br.com.infox.DAO.ClienteDAO;
+<<<<<<< HEAD
+=======
+import br.com.infox.DAO.ProdutoDAO;
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import com.mycompany.projetopi.model.Cliente;
@@ -10,12 +14,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
+<<<<<<< HEAD
 public class frmCliente extends javax.swing.JFrame {
 
     public frmCliente() {
         initComponents();
         lblid.setVisible(false);
 
+=======
+
+public class frmCliente extends javax.swing.JFrame {
+
+    
+    public frmCliente() {
+        initComponents();
+        lblid.setVisible(false);
+        
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         ArrayList<Cliente> lista = ClienteDAO.listaCliente();
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
@@ -36,9 +51,16 @@ public class frmCliente extends javax.swing.JFrame {
                 String.valueOf(item.getNumero()),
                 String.valueOf(item.getComplemento())});
         }
+<<<<<<< HEAD
 
     }
 
+=======
+        
+    }
+
+    
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -258,6 +280,7 @@ public class frmCliente extends javax.swing.JFrame {
                 String.valueOf(item.getNumero()),
                 String.valueOf(item.getComplemento())});
         }
+<<<<<<< HEAD
 
     }//GEN-LAST:event_brnAtualizarActionPerformed
 
@@ -265,6 +288,15 @@ public class frmCliente extends javax.swing.JFrame {
         int id = Integer.parseInt((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0));
         System.out.println(id);
 
+=======
+        
+    }//GEN-LAST:event_brnAtualizarActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        int id = Integer.parseInt((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow() ,0));
+        System.out.println(id);
+        
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         frmAlterarCliente formulario;
         try {
             formulario = new frmAlterarCliente(id);
@@ -273,7 +305,11 @@ public class frmCliente extends javax.swing.JFrame {
             Logger.getLogger(frmCliente.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(frmCliente.class.getName()).log(Level.SEVERE, null, ex);
+<<<<<<< HEAD
         }
+=======
+        }        
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
@@ -308,7 +344,11 @@ public class frmCliente extends javax.swing.JFrame {
 
     private void btnExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir1ActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         int id = Integer.parseInt((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow(), 0));
+=======
+        int id = Integer.parseInt((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow() ,0));
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
         try {
             ClienteDAO.deletar(id);
         } catch (ClassNotFoundException ex) {
@@ -316,7 +356,10 @@ public class frmCliente extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(frmProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f8eb109b5924e32a42e8b081a4efa1336c31d99b
     }//GEN-LAST:event_btnExcluir1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
