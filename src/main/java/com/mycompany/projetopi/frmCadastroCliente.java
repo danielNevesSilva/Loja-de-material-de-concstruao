@@ -10,9 +10,9 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import br.com.infox.DAO.Conexao;
-import br.com.infox.DAO.EstoqueDAO;
+import br.com.infox.DAO.ProdutoDAO;
 import com.mycompany.projetopi.model.Cliente;
-import com.mycompany.projetopi.model.Estoque;
+import com.mycompany.projetopi.model.Produto;
 import java.util.Date;
 
 /**

@@ -1,9 +1,9 @@
 package br.com.infox.DAO;
 
 import java.util.Date;
-import static br.com.infox.DAO.EstoqueDAO.LOGIN;
-import static br.com.infox.DAO.EstoqueDAO.SENHA;
-import static br.com.infox.DAO.EstoqueDAO.URL;
+import static br.com.infox.DAO.ProdutoDAO.LOGIN;
+import static br.com.infox.DAO.ProdutoDAO.SENHA;
+import static br.com.infox.DAO.ProdutoDAO.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import br.com.infox.DAO.ClienteDAO;
 import com.mycompany.projetopi.model.Cliente;
 import com.mycompany.projetopi.frmCadastroCliente;
-import com.mycompany.projetopi.model.Estoque;
+import com.mycompany.projetopi.model.Produto;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 

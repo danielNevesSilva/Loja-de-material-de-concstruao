@@ -5,7 +5,7 @@ import br.com.infox.DAO.VendasDAO;
 import br.com.infox.DAO.VendasProdutosDAO;
 import com.mycompany.projetopi.frmCadastroCliente;
 import com.mycompany.projetopi.model.Cliente;
-import com.mycompany.projetopi.model.Estoque;
+import com.mycompany.projetopi.model.Produto;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -345,13 +345,14 @@ public class frmVendas extends javax.swing.JFrame {
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         // TODO add your handling code here:
-        ArrayList<Estoque> lista = VendasProdutosDAO.consultarProduto(txtProduto.getText());
+        /*
+        ArrayList<Produto> lista = VendasProdutosDAO.consultarProduto(txtProduto.getText());
 
         DefaultTableModel modelo = (DefaultTableModel) tblListaProdutos.getModel();
 
         modelo.setRowCount(0);
 
-        for (Estoque item : lista) {
+        for (Produto item : lista) {
             modelo.addRow(new String[]{
                 String.valueOf(item.getProduto()),
                 String.valueOf(item.getQuantidade()),
@@ -359,7 +360,7 @@ public class frmVendas extends javax.swing.JFrame {
             });
 
         }
-
+        */
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
