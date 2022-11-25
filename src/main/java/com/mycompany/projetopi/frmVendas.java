@@ -2,7 +2,7 @@
 package com.mycompany.projetopi;
 
 import br.com.infox.DAO.VendasDAO;
-import br.com.infox.DAO.VendasProdutosDAO;
+import br.com.infox.DAO.OrcamentoDAO;
 import com.mycompany.projetopi.frmCadastroCliente;
 import com.mycompany.projetopi.model.Cliente;
 import com.mycompany.projetopi.model.Produto;
@@ -228,10 +228,10 @@ public class frmVendas extends javax.swing.JFrame {
         jScrollPane4.setViewportView(tblDadosCliente);
 
         jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 310, 120));
-        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 70, -1));
+        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, -1));
 
         jLabel12.setText("Quantidade");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -346,7 +346,7 @@ public class frmVendas extends javax.swing.JFrame {
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         // TODO add your handling code here:
         /*
-        ArrayList<Produto> lista = VendasProdutosDAO.consultarProduto(txtProduto.getText());
+        ArrayList<Produto> lista = OrcamentoDAO.consultarProduto(txtProduto.getText());
 
         DefaultTableModel modelo = (DefaultTableModel) tblListaProdutos.getModel();
 

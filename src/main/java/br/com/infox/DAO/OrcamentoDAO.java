@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package br.com.infox.DAO;
 
 import static br.com.infox.DAO.ProdutoDAO.LOGIN;
@@ -15,11 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- *
- * @author danie
- */
-public class VendasProdutosDAO {
+
+public class OrcamentoDAO {
     /*
     public static ArrayList<Produto> consultarProduto(String nomeProduto) {
         

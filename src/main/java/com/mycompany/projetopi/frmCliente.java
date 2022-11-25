@@ -1,6 +1,7 @@
 package com.mycompany.projetopi;
 
 import br.com.infox.DAO.ClienteDAO;
+import br.com.infox.DAO.ProdutoDAO;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import com.mycompany.projetopi.model.Cliente;
@@ -311,6 +312,14 @@ public class frmCliente extends javax.swing.JFrame {
 
     private void btnExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir1ActionPerformed
         // TODO add your handling code here:
+        int id = Integer.parseInt((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow() ,0));
+        try {
+            ClienteDAO.deletar(id);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(frmProduto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(frmProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnExcluir1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
