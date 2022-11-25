@@ -1,7 +1,9 @@
 C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmMenu.java
 C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmVendas.java
 C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmAlterarProduto.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Orcamento.java
 C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmCadastroProduto.java
+C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\OrcamentoDAO.java
 C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Produto.java
 C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\ProdutoDAO.java
 C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmProduto.java
@@ -16,6 +18,5 @@ C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\Conne
 C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmCadastroCliente.java
 C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmCliente.java
 C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmConfirmaVenda.java
-C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\br\com\infox\DAO\VendasProdutosDAO.java
 C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\frmRelatorio.java
 C:\Users\MSO\Documents\GitHub\Loja-de-material-de-construcao\src\main\java\com\mycompany\projetopi\model\Vendas.java

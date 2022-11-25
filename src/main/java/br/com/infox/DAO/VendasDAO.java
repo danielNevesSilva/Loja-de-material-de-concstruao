@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * @author danie
  */
 public class VendasDAO {
-    /*
+    
     public static ArrayList<Cliente> consultarCliente(String CPF) {
         ArrayList<Cliente> listaRetorno = new ArrayList<>();
         ResultSet rs = null;
@@ -59,5 +59,5 @@ public class VendasDAO {
         
         return listaRetorno;
     }
-    */
+    
 }

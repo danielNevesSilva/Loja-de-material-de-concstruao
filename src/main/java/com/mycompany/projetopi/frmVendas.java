@@ -264,7 +264,7 @@ public class frmVendas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -299,8 +299,8 @@ public class frmVendas extends javax.swing.JFrame {
 
     private void btnConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClienteActionPerformed
         // TODO add your handling code here:
-        /*
-        ArrayList<Cliente> lista = VendasDAO.consultarCliente(txtCPF.getText());
+        
+        ArrayList<Cliente> lista = OrcamentoDAO.consultarCliente(txtCPF.getText().replace("-","").replace(".", ""));
 
         DefaultTableModel modelo = (DefaultTableModel) tblDadosCliente.getModel();
 
@@ -308,13 +308,13 @@ public class frmVendas extends javax.swing.JFrame {
 
         for (Cliente item : lista) {
             modelo.addRow(new String[]{
-                String.valueOf(item.getCpf()),
                 String.valueOf(item.getNome()),
+                String.valueOf(item.getCpf()),
                 String.valueOf(item.getTelefone())
             });
 
         }
-        */
+        
     }//GEN-LAST:event_btnConsultaClienteActionPerformed
 
     private void txtProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoActionPerformed
@@ -344,7 +344,6 @@ public class frmVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCPFActionPerformed
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
-        // TODO add your handling code here:
         /*
         ArrayList<Produto> lista = OrcamentoDAO.consultarProduto(txtProduto.getText());
 
@@ -388,9 +387,7 @@ public class frmVendas extends javax.swing.JFrame {
          */
     }//GEN-LAST:event_btnRemoverActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
