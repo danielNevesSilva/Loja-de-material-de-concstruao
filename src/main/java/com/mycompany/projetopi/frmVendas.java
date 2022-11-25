@@ -1,23 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.mycompany.projetopi;
 
 import br.com.infox.DAO.VendasDAO;
-import br.com.infox.DAO.VendasProdutosDAO;
+import br.com.infox.DAO.OrcamentoDAO;
 import com.mycompany.projetopi.frmCadastroCliente;
 import com.mycompany.projetopi.model.Cliente;
-import com.mycompany.projetopi.model.Estoque;
+import com.mycompany.projetopi.model.Produto;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author danie
- */
+
 public class frmVendas extends javax.swing.JFrame {
 
     public Cliente objCliente = null;
@@ -234,10 +228,10 @@ public class frmVendas extends javax.swing.JFrame {
         jScrollPane4.setViewportView(tblDadosCliente);
 
         jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 310, 120));
-        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 70, -1));
+        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, -1));
 
         jLabel12.setText("Quantidade");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -305,6 +299,7 @@ public class frmVendas extends javax.swing.JFrame {
 
     private void btnConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaClienteActionPerformed
         // TODO add your handling code here:
+        /*
         ArrayList<Cliente> lista = VendasDAO.consultarCliente(txtCPF.getText());
 
         DefaultTableModel modelo = (DefaultTableModel) tblDadosCliente.getModel();
@@ -319,7 +314,7 @@ public class frmVendas extends javax.swing.JFrame {
             });
 
         }
-
+        */
     }//GEN-LAST:event_btnConsultaClienteActionPerformed
 
     private void txtProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoActionPerformed
@@ -350,13 +345,14 @@ public class frmVendas extends javax.swing.JFrame {
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         // TODO add your handling code here:
-        ArrayList<Estoque> lista = VendasProdutosDAO.consultarProduto(txtProduto.getText());
+        /*
+        ArrayList<Produto> lista = OrcamentoDAO.consultarProduto(txtProduto.getText());
 
         DefaultTableModel modelo = (DefaultTableModel) tblListaProdutos.getModel();
 
         modelo.setRowCount(0);
 
-        for (Estoque item : lista) {
+        for (Produto item : lista) {
             modelo.addRow(new String[]{
                 String.valueOf(item.getProduto()),
                 String.valueOf(item.getQuantidade()),
@@ -364,7 +360,7 @@ public class frmVendas extends javax.swing.JFrame {
             });
 
         }
-
+        */
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed

@@ -20,6 +20,7 @@ import java.util.ArrayList;
  * @author danie
  */
 public class VendasDAO {
+    /*
     public static ArrayList<Cliente> consultarCliente(String CPF) {
         ArrayList<Cliente> listaRetorno = new ArrayList<>();
         ResultSet rs = null;
@@ -32,7 +33,7 @@ public class VendasDAO {
             rs = comandoSQL.executeQuery();
             if (rs != null) {
                 while (rs.next()) {
-                     Cliente item = new Cliente();
+                    Cliente item = new Cliente();
                     item.setCpf(rs.getString("CPF"));
                     item.setNome(rs.getString("Nome"));
                     item.setTelefone(rs.getString("Telefone"));
@@ -55,8 +56,8 @@ public class VendasDAO {
 
             }
         }
-
+        
         return listaRetorno;
     }
-
+    */
 }

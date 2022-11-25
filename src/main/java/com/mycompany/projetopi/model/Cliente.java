@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Cliente {
 
-    private String id;
+    private int id_cliente;
     private String cpf;
     private String nome;
     private String telefone;
@@ -12,24 +12,22 @@ public class Cliente {
     private String dataNascimento;
     private String sexo;
     private String estadocivil;
-    private String cidade;
-    
+    private String nomePais;
+    private String nomeCidade;
+    private String cep;
+    private String logradouro;
+    private String numero;
+    private String complemento;
 
-    public Cliente() {
+    
+    /* GETTERS E SETTERS */
+
+    public int getId_cliente() {
+        return id_cliente;
     }
 
-    
-
-    public Cliente(String cpf, String nome, String telefone, String email, String dataNascimento, String sexo, String estadocivil, String cidade, String id) {
-        this.cpf = cpf;
-        this.nome = nome;
-        this.telefone = telefone;
-        this.email = email;
-        this.dataNascimento = dataNascimento;
-        this.sexo = sexo;
-        this.estadocivil = estadocivil;
-        this.cidade = cidade;
-        
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     public String getCpf() {
@@ -88,19 +86,52 @@ public class Cliente {
         this.estadocivil = estadocivil;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getNomePais() {
+        return nomePais;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
- public String getId() {
-        return id;
+    public void setNomePais(String nomePais) {
+        this.nomePais = nomePais;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getNomeCidade() {
+        return nomeCidade;
     }
- 
+
+    public void setNomeCidade(String nomeCidade) {
+        this.nomeCidade = nomeCidade;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+    
 }

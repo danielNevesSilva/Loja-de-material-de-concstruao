@@ -4,10 +4,10 @@
  */
 package br.com.infox.DAO;
 
-import static br.com.infox.DAO.EstoqueDAO.LOGIN;
-import static br.com.infox.DAO.EstoqueDAO.SENHA;
-import static br.com.infox.DAO.EstoqueDAO.URL;
-import com.mycompany.projetopi.model.Estoque;
+import static br.com.infox.DAO.ProdutoDAO.LOGIN;
+import static br.com.infox.DAO.ProdutoDAO.SENHA;
+import static br.com.infox.DAO.ProdutoDAO.URL;
+import com.mycompany.projetopi.model.Produto;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,10 +19,11 @@ import java.util.ArrayList;
  *
  * @author danie
  */
-public class VendasProdutosDAO {
-
-    public static ArrayList<Estoque> consultarProduto(String nomeProduto) {
-        ArrayList<Estoque> listaRetorno = new ArrayList<>();
+public class OrcamentoDAO {
+    /*
+    public static ArrayList<Produto> consultarProduto(String nomeProduto) {
+        
+        ArrayList<Produto> listaRetorno = new ArrayList<>();
         ResultSet rs = null;
 
         try {
@@ -33,7 +34,7 @@ public class VendasProdutosDAO {
             rs = comandoSQL.executeQuery();
             if (rs != null) {
                 while (rs.next()) {
-                    Estoque item = new Estoque();
+                    Produto item = new Produto();
                     item.setIdprod(rs.getInt("idprod"));
                     item.setProduto(rs.getString("produto"));
                     item.setQuantidade(rs.getInt("quantidade"));
@@ -57,10 +58,10 @@ public class VendasProdutosDAO {
 
             }
         }
-
+        
         return listaRetorno;
     }
-
+    */
     public static boolean Excluir(String codigo) {
         boolean retorno = false;
         try {
