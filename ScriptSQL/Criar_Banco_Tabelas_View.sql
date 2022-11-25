@@ -52,6 +52,7 @@ desc Orcamento;
 
 create table Venda(
 id_venda int primary key not null auto_increment,
+numeroOrcameneto bigint not null,
 fk_orcamento int,
 fk_vendedor int,
 valorTotal float,
